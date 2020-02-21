@@ -49,6 +49,7 @@ recognition.onresult = function (event) {
 }
 
 recognition.onspeechend = function () {
+  console.log("whats good")
   recognition.stop();
 }
 
