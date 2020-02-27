@@ -1,0 +1,51 @@
+Commands
+
+    Weather
+        Whats the weather like today?
+        Whats the weather like tomorrow?
+        Is it raining outside?
+        How cold is it?
+        Weather alerts?
+
+    Timer
+        Set a timer for 60 minutes.
+        What timers do I have?
+        Show me all my timers running.
+        Stop my laundry timer.
+
+    Alarms
+        Set an alarm for 5:00 AM.
+
+    Reminders
+
+    News
+        Give me the top stories of the day.
+
+
+    Music
+        Play my chill playlist.
+        Play songs by the beatles.
+        Play GUMMY by brockhampton.
+
+    Dates of intrest
+
+
+API Endpoints
+    weather right now                       OpenWeather Current Weather
+    weather map of [type]                   Openweather Maps
+    weather on [day], forcast               OpenWeather Forcast
+
+
+
+
+
+
+=
+
+
+
+
+
+API Calls
+    weather [day]
+        Call with: "Whats the weather like {day}"

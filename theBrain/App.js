@@ -1,5 +1,6 @@
 const { ApolloServer, gql } = require('apollo-server-express');
 const express = require('express');
+const Weather = require('./DataSources/Weather')
 //const Places = require('./DataSources/Places')
 const path = require('path')
 const app = express();
@@ -11,12 +12,25 @@ app.use(cors());
 const schema = gql`
 type Query {
 	test: String,
+    weatherNow: WeatherRecord,
+    weatherForecast: [WeatherRecord]
+},
+type WeatherRecord {
+    response: String,
+    temp: String,
+    temp_min: String,
+    temp_max: String
+    main: String,
+    description: String,
+    time: String
 }
 `;
 
 const resolvers = {
     Query: {
         test: () => { return "MuddBot 3.0" },
+        weatherNow: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(),
+        weatherForecast: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useForecastAPI(),
     },
     // ,
 };
@@ -27,10 +41,10 @@ const resolvers = {
 
 const server = new ApolloServer({
     typeDefs: schema,
-    resolvers//,
-    // dataSources: () => ({
-    // 	Places: new Places,
-    // })
+    resolvers,
+    dataSources: () => ({
+        Weather: new Weather,
+    })
 });
 
 // server.listen().then(({ url }) => {
