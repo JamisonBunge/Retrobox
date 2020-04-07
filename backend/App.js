@@ -29,8 +29,8 @@ type WeatherRecord {
 const resolvers = {
     Query: {
         test: () => { return "MuddBot 3.0" },
-        weatherNow: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(),
-        weatherForecast: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useForecastAPI(),
+        weatherNow: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(lat, long),
+        weatherForecast: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useForecastAPI(lat, long),
     },
     // ,
 };
