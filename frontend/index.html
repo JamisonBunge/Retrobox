@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Speaker Demo</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
+    <style>
+        .mybutton {
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        .mycard {
+            width: 100%;
+        }
+
+        .mytitle {
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body style="background: #f3f3f3">
+    <div class="container">
+        <h1 class="text-center mytitle">Smart Speaker Demo</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
+                    class="btn btn-primary mybutton">Weather Now</button>
+                <button onClick="getCommand(`weatherForecast`)" id="weatherforecast" type="button"
+                    class="btn btn-primary mybutton">
+                    Weather Forecast</button>
+            </div>
+            <div class="col-sm-8">
+                <div class="card mycard border-primary mb-3">
+                    <div id="card-header" class="card-header ">Test endpoints by hand</div>
+                    <div class="card-body text-primary">
+                        <h5 id="card-title" class="card-title">Click a button</h5>
+                        <h6 id="card-subtitle" class="card-title"></h6>
+                        <p id="card-text" class="card-text text-secondary"></p>
+                        <h7 class="text-danger">*location is set to columbia </h7>
+                        <div class="placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script src="app.js"></script>
+
+</html>
