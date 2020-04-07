@@ -12,8 +12,8 @@ app.use(cors());
 const schema = gql`
 type Query {
 	test: String,
-    weatherNow: WeatherRecord,
-    weatherForecast: [WeatherRecord]
+    weatherNow(lat: Float!,long: Float!): WeatherRecord,
+    weatherForecast(lat: Float!,long: Float!): [WeatherRecord]
 },
 type WeatherRecord {
     response: String,
@@ -29,8 +29,8 @@ type WeatherRecord {
 const resolvers = {
     Query: {
         test: () => { return "MuddBot 3.0" },
-        weatherNow: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(),
-        weatherForecast: async (parent, { lat, lng }, { dataSources }) => dataSources.Weather.useForecastAPI(),
+        weatherNow: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(lat, long),
+        weatherForecast: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useForecastAPI(lat, long),
     },
     // ,
 };

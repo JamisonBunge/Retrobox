@@ -4,13 +4,14 @@ class Weather extends RESTDataSource {
     constructor() {
         super()
         this.apiKey = '48b33d7ecfa15d60e843ac29eabda39e'
+        //Wien Hall
         this.lat = "40.806725"
-        this.lng = "-73.960140"
+        this.long = "-73.960140"
     }
     willSendRequest(request) {
         request.headers.set('appid', this.apiKey);
         request.headers.set('lat', this.lat);
-        request.headers.set('lng', this.lng);
+        request.headers.set('lng', this.long);
     }
 
     formatTemp(kelvin, size) {
@@ -31,8 +32,8 @@ class Weather extends RESTDataSource {
 
     }
 
-    async useForecastAPI() {
-        let result = await this.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.lng}&appid=${this.apiKey}`)
+    async useForecastAPI(lat, long) {
+        let result = await this.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${this.apiKey}`)
         let result_list = result.list
         let wrarray = []
         for (let res of result_list) {
@@ -44,8 +45,8 @@ class Weather extends RESTDataSource {
         return wrarray
     }
 
-    async useCurrentWeatherAPI() {
-        let result = await this.get(`https://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lng}&appid=${this.apiKey}`)
+    async useCurrentWeatherAPI(lat, long) {
+        let result = await this.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${this.apiKey}`)
         let wr = Object
         wr.temp = this.formatTemp(result.main.temp, 2)
         wr.response = `It is ${this.formatTemp(result.main.temp, 0)} degrees outside. `
