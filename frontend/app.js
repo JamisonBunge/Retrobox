@@ -4,7 +4,26 @@ Date.prototype.formatMMDDYYYY = function () {
         "/" + this.getFullYear();
 }
 
-let weatherNow = `weatherNow {
+
+let longitude
+let latitude
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(successFunction, errorFunction)
+} else {
+    alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+}
+
+function errorFunction() {
+    console.log('error function was hit')
+}
+function successFunction(position) {
+    latitude = position.coords.latitude.toFixed(5)
+    longitude = position.coords.longitude.toFixed(5)
+}
+
+
+let weatherNow = `weatherNow(lat: ${latitude}, long:${longitude}) {
     temp
     temp_min
     temp_max
@@ -13,7 +32,7 @@ let weatherNow = `weatherNow {
     response
   }`
 
-let weatherForecast = `weatherForecast {
+let weatherForecast = `weatherForecast(lat: ${latitude}, long:${longitude}) {
     temp
     temp_min
     temp_max
@@ -24,10 +43,15 @@ let weatherForecast = `weatherForecast {
   }`
 
 
+const getlocation = keyword => `{ ${keyword}(filter: { q:"${keyword}"}) { author title url } }`;
+
+
+
 async function getCommand(keyword) {
 
     //switches to the right body content for each command
     // console.log(keyword)
+    console.log(`lat: ${latitude}, lng: ${longitude}`)
     switch (keyword) {
         case "weatherNow":
             queryby = weatherNow
@@ -38,11 +62,12 @@ async function getCommand(keyword) {
             func = handleWeatherForecast
             break
         default:
+            console.log('ddd')
             queryby = "test"
     }
 
-
-    x = fetch('https://secure-lake-82343.herokuapp.com/graphql', {
+    //fetch('https://secure-lake-82343.herokuapp.com/graphql', {
+    fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -57,10 +82,6 @@ async function getCommand(keyword) {
         .then((response) => {
             //here the object has been stripped down to be specific for each call
             func(response, keyword)
-
-
-
-
         })
 }
 
