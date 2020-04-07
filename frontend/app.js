@@ -23,7 +23,7 @@ function successFunction(position) {
 }
 
 
-let weatherNow = `weatherNow(lat: ${latitude}, long:${longitude}) {
+let weatherNow = () => `weatherNow(lat: ${latitude}, long:${longitude}) {
     temp
     temp_min
     temp_max
@@ -32,7 +32,7 @@ let weatherNow = `weatherNow(lat: ${latitude}, long:${longitude}) {
     response
   }`
 
-let weatherForecast = `weatherForecast(lat: ${latitude}, long:${longitude}) {
+let weatherForecast = () => `weatherForecast(lat: ${latitude}, long:${longitude}) {
     temp
     temp_min
     temp_max
@@ -41,9 +41,7 @@ let weatherForecast = `weatherForecast(lat: ${latitude}, long:${longitude}) {
     response
     time
   }`
-
-
-const getlocation = keyword => `{ ${keyword}(filter: { q:"${keyword}"}) { author title url } }`;
+    ;
 
 
 
@@ -54,11 +52,11 @@ async function getCommand(keyword) {
     console.log(`lat: ${latitude}, lng: ${longitude}`)
     switch (keyword) {
         case "weatherNow":
-            queryby = weatherNow
+            queryby = weatherNow()
             func = handleWeatherNow
             break
         case "weatherForecast":
-            queryby = weatherForecast
+            queryby = weatherForecast()
             func = handleWeatherForecast
             break
         default:
@@ -66,6 +64,7 @@ async function getCommand(keyword) {
             queryby = "test"
     }
 
+    console.log(queryby)
     //fetch('https://secure-lake-82343.herokuapp.com/graphql', {
     fetch('http://localhost:5000/graphql', {
         method: 'POST',
@@ -77,7 +76,7 @@ async function getCommand(keyword) {
     })
         .then(r => r.json())
         .then(data => data["data"])
-        // .then(d => console.log(d))
+        //.then(d => console.log(d))
         .then(d => d[keyword])
         .then((response) => {
             //here the object has been stripped down to be specific for each call

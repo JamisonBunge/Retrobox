@@ -12,8 +12,8 @@ app.use(cors());
 const schema = gql`
 type Query {
 	test: String,
-    weatherNow: WeatherRecord,
-    weatherForecast: [WeatherRecord]
+    weatherNow(lat: Float!,long: Float!): WeatherRecord,
+    weatherForecast(lat: Float!,long: Float!): [WeatherRecord]
 },
 type WeatherRecord {
     response: String,
