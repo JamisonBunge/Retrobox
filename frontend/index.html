@@ -30,7 +30,12 @@
             margin: 10px auto;
         }
 
-        #iframe-container {
+        .iframe-container {
+            height: 300px
+        }
+
+        #clock-iframe {
+            border: 0;
             height: 100%;
             width: 100%;
         }
@@ -43,10 +48,8 @@
 
         
         <div class="row">
-            <div class="col-sm-4">
-                <div id="iframe-container">
-                    <iframe src="clock.html"></iframe>
-                </div>
+            <div class="col-sm-12 iframe-container">
+                <iframe src="clock.html" id="clock-iframe"></iframe>
             </div>
         </div>
 
