@@ -22,6 +22,16 @@
             width: 100%;
         }
 
+        .centerdiv {
+            text-align: center;
+        }
+
+        .voicebutton {
+            width: 80%;
+            margin-bottom: 20px;
+
+        }
+
         .mycard {
             width: 100%;
         }
@@ -39,10 +49,6 @@
             height: 100%;
             width: 100%;
         }
-
-        .new-button {
-            maring: auto;
-        }
     </style>
 </head>
 
@@ -50,7 +56,6 @@
     <div class="container">
         <h1 class="text-center mytitle">Smart Speaker Demo</h1>
 
-        
         <div class="row">
             <div class="col-sm-12 iframe-container">
                 <iframe src="clock.html" id="clock-iframe"></iframe>
@@ -58,11 +63,17 @@
         </div>
 
         <div class="row">
+            <div class="col-sm-12 centerdiv">
+                <button id="voice" type="button" class="btn btn-dark voicebutton">Voice</button>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-sm-4">
                 <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
-                    class="btn btn-primary mybutton">Weather Now</button>
+                    class="btn btn-dark mybutton">Weather Now</button>
                 <button onClick="getCommand(`weatherForecast`)" id="weatherforecast" type="button"
-                    class="btn btn-primary mybutton">
+                    class="btn btn-dark mybutton">
                     Weather Forecast</button>
             </div>
             <div class="col-sm-8">
@@ -77,13 +88,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-12 iframe-container">
-                <div align="center">
-                    <button id="voice" type="button" class="btn btn-primary new-button">Voice</button>
-                </div>
-            </div>
-        </div>
+
 
     </div>
 </body>
