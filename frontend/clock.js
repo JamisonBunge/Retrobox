@@ -1,108 +1,139 @@
 
+Element.Properties.transform = {
 
-$(function () {
+    set: function (transform) {
+        var property = 'transform';
+        console.log(Browser);
+        if (Browser.chrome) property = 'WebkitTransform';
+        if (Browser.firefox) property = 'MozTransform';
+        if (Browser.opera) property = 'OTransform';
 
-    // Cache some selectors
+        this.style[property] = transform;
+        this.store('transform', transform);
+    },
 
-    var clock = $('#clock'),
-        alarm = clock.find('.alarm'),
-        ampm = clock.find('.ampm');
+    get: function () {
+        return this.retrieve('transform', '');
+    }
 
-    // Map digits to their names (this will be an array)
-    var digit_to_name = 'zero one two three four five six seven eight nine'.split(' ');
+};
 
-    // This object will hold the digit elements
-    var digits = {};
+Element.implement({
 
-    // Positions for the hours, minutes, and seconds
-    var positions = [
-        'h1', 'h2', ':', 'm1', 'm2', ':', 's1', 's2'
-    ];
+    setTransform: function (value) {
+        return this.set('transform', value);
+    },
 
-    // Generate the digits with the needed markup,
-    // and add them to the clock
+    getTransform: function () {
+        return this.get('transform');
+    }
 
-    var digit_holder = clock.find('.digits');
+});
 
-    $.each(positions, function () {
+$(window).addEvent('domready', function () {
+    var $hourWrap = $$('.hour-wrap');
+    var $hourFront = $hourWrap.getElement('div.front');
+    var $hourBack = $hourWrap.getElement('div.back')
+    var $hourTop = $hourWrap.getElement('div.digit-top');
+    var $hourBottom = $hourWrap.getElement('div.digit-bottom .front');
 
-        if (this == ':') {
-            digit_holder.append('<div class="dots">');
-        }
-        else {
+    var $minWrap = $$('.min-wrap');
+    var $minFront = $minWrap.getElement('div.front');
+    var $minBack = $minWrap.getElement('div.back');
+    var $minTop = $minWrap.getElement('div.digit-top');
+    var $minBottom = $minWrap.getElement('div.digit-bottom .front');
 
-            var pos = $('<div>');
+    var currentHour = 0;
+    var currentMin = 0;
 
-            for (var i = 1; i < 8; i++) {
-                pos.append('<span class="d' + i + '">');
+    var setClock = function () {
+        var time = new Date();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+
+        if (currentHour != hour) {
+            currentHour = hour;
+            if (hour > 12) {
+                var hourText = (hour - 12);
+                var meridiem = 'pm';
+            }
+            else {
+                var hourText = hour;
+                var meridiem = 'am';
             }
 
-            // Set the digits as key:value pairs in the digits object
-            digits[this] = pos;
+            var $meridiem = new Element('div', { 'class': 'meridiem', 'text': meridiem });
 
-            // Add the digit elements to the page
-            digit_holder.append(pos);
+            // make el to sit behind the top digit
+            var $newHourTop = new Element('div', { class: 'digit-top', html: $hourTop.get('html'), style: 'z-index:1;' })
+            var $newHourFront = $newHourTop.getElement('div.front');
+            var $newHourBack = $newHourTop.getElement('div.back');
+
+            $newHourFront.set('text', hourText);
+            $hourWrap.adopt($newHourTop);
+
+            // start the animation
+            $hourFront.setTransform('rotateX(180deg)');
+            $hourBack.setTransform('rotateX(0deg)');
+
+            $hourBack.setStyle('zIndex', 40);
+
+            // set the hour back
+            $hourBack.set('text', hourText);
+            $hourBack.adopt($meridiem);
+
+            (function () {
+                $hourTop.destroy();
+                $hourFront.destroy();
+                $hourBack.destroy();
+
+                $hourTop = $newHourTop;
+                $hourFront = $newHourFront;
+                $hourBack = $newHourBack;
+
+                $hourTop.setStyle('zIndex', 10);
+                $hourBottom.set('text', hourText);
+                $hourBottom.adopt($meridiem)
+            }).delay(800);
         }
 
-    });
+        if (currentMin != min) {
+            currentMin = min;
+            var minText = min < 10 ? '0' + min : min;
 
-    // Add the weekday names
+            // make el to sit behind the top digit
+            var $newMinTop = new Element('div', { class: 'digit-top', html: $minTop.get('html'), style: 'z-index:1;' })
+            var $newMinFront = $newMinTop.getElement('div.front');
+            var $newMinBack = $newMinTop.getElement('div.back');
 
-    var weekday_names = 'MON TUE WED THU FRI SAT SUN'.split(' '),
-        weekday_holder = clock.find('.weekdays');
+            $newMinFront.set('text', minText);
+            $minWrap.adopt($newMinTop);
 
-    $.each(weekday_names, function () {
-        weekday_holder.append('<span>' + this + '</span>');
-    });
+            // start the animation
+            $minFront.setTransform('rotateX(180deg)');
+            $minBack.setTransform('rotateX(0deg)');
+            $minBack.setStyle('zIndex', 40);
 
-    var weekdays = clock.find('.weekdays span');
+            // set the min back
+            $minBack.set('text', minText);
 
-    // Run a timer every second and update the clock
+            (function () {
+                $minTop.destroy();
+                $minFront.destroy();
+                $minBack.destroy();
 
-    (function update_time() {
+                $minTop = $newMinTop;
+                $minFront = $newMinFront;
+                $minBack = $newMinBack;
 
-        // Use moment.js to output the current time as a string
-        // hh is for the hours in 12-hour format,
-        // mm - minutes, ss-seconds (all with leading zeroes),
-        // d is for day of week and A is for AM/PM
-
-        var now = moment().format("hhmmssdA");
-
-        digits.h1.attr('class', digit_to_name[now[0]]);
-        digits.h2.attr('class', digit_to_name[now[1]]);
-        digits.m1.attr('class', digit_to_name[now[2]]);
-        digits.m2.attr('class', digit_to_name[now[3]]);
-        digits.s1.attr('class', digit_to_name[now[4]]);
-        digits.s2.attr('class', digit_to_name[now[5]]);
-
-        // The library returns Sunday as the first day of the week.
-        // Stupid, I know. Lets shift all the days one position down,
-        // and make Sunday last
-
-        var dow = now[6];
-        dow--;
-
-        // Sunday!
-        if (dow < 0) {
-            // Make it last
-            dow = 6;
+                $minTop.setStyle('zIndex', 10);
+                $minBottom.set('text', minText);
+            }).delay(800);
         }
 
-        // Mark the active day of the week
-        weekdays.removeClass('active').eq(dow).addClass('active');
+        //$hourEls.set('text', hour);
 
-        // Set the am/pm text:
-        ampm.text(now[7] + now[8]);
+    }
 
-        // Schedule this function to be run again in 1 sec
-        setTimeout(update_time, 1000);
-
-    })();
-
-    // Switch the theme
-
-    $('a.button').click(function () {
-        clock.toggleClass('light dark');
-    });
-
+    setClock.periodical(1000);
 });
