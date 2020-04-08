@@ -29,12 +29,27 @@
         .mytitle {
             margin: 10px auto;
         }
+
+        #iframe-container {
+            height: 100%;
+            width: 100%;
+        }
     </style>
 </head>
 
 <body style="background: #f3f3f3">
     <div class="container">
         <h1 class="text-center mytitle">Smart Speaker Demo</h1>
+
+        
+        <div class="row">
+            <div class="col-sm-4">
+                <div id="iframe-container">
+                    <iframe src="clock.html"></iframe>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-sm-4">
                 <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
