@@ -1,5 +1,5 @@
-$('a').on('click', function(){
+$('.voicebutton').on('click', function () {
   $('.wrap, a').toggleClass('active');
-  
+
   return false;
 });
