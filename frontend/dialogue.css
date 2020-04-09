@@ -30,7 +30,9 @@ body {
 
   .wrap {
     position: absolute;
-    overflow: hidden;
+    overflow-y: scroll;
+    overflow-x:hidden;
+    /* overflow: hidden; */
     top: 10%;
     right: 10%;
     bottom: 85px;
