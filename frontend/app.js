@@ -167,7 +167,8 @@ function dialogprogression() {
 
     //this needs to be changed to use the ID of the button thats pressing it
     //for now it will be hardcoded for weathernow
-    document.getElementById('tempoutput').style.display = "none"
+    output.innerHTML = getVoiceViz()
+    forViz()
     document.getElementById('serverprompt').innerHTML = ""
 
     let parsedCmd = 'weatherNow'
@@ -190,15 +191,21 @@ function closeDialogUI() {
 }
 
 
-    //1 start listening for voice
-        //a. init voice visualizer  on output div
-        //c, init js that does this bullshit
-        //d. after the pause, get parsed cmd
-        //e. unmount voice visualizer
-        //f. mount loading animation on output div
+//1 start listening for voice
+//a. init voice visualizer  on output div
+//c, init js that does this bullshit
+//d. after the pause, get parsed cmd
+//e. unmount voice visualizer
+//f. mount loading animation on output div
 
-    //2 run getCommand(parsedCmd)
-        //wait for async call to get
-        //set response on dialog card
-        //set output div to html for output card
-            //^THIS IS TODO. for it just 'shows' the hidden card
+//2 run getCommand(parsedCmd)
+//wait for async call to get
+//set response on dialog card
+//set output div to html for output card
+//^THIS IS TODO. for it just 'shows' the hidden card
+
+function getVoiceViz() {
+    return `<div id="circle-viz-container">
+    <button class="circle-btn"></button>
+  </div>`
+}
