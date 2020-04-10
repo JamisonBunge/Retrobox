@@ -111,50 +111,22 @@
                 </div>
             </div>
 
-
-
-
-
             <h2 id="serverprompt"></h2>
             <div id=output></div>
             <div id="tempoutput">
-                <div class="card mycard border-primary mb-3">
-                    <div id="card-header" class="card-header "></div>
-                    <div class="card-body text-primary">
-                        <h5 id="card-title" class="card-title"></h5>
-                        <h6 id="card-subtitle" class="card-title"></h6>
-                        <p id="card-text" class="card-text text-secondary"></p>
-                    </div>
-                </div>
+
             </div>
-            <button id="voice" type="button" class="btn btn-dark voicebutton exitbutton">Exit</button>
-
+            <button id="voice" onClick="closeDialogUI()" type="button"
+                class="btn btn-dark voicebutton exitbutton">Exit</button>
             <!-- this button should always be on the screen -->
-
-            <!-- <div class="row">
-                <div class="col-sm-4">
-                    <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
-                        class="btn btn-dark mybutton">Weather Now</button>
-                    <button onClick="getCommand(`weatherForecast`)" id="weatherforecast" type="button"
-                        class="btn btn-dark mybutton">
-                        Weather Forecast</button>
-                </div>
-                <div class="col-sm-8">
-                    <div class="card mycard border-primary mb-3">
-                        <div id="card-header" class="card-header ">Test endpoints by hand</div>
-                        <div class="card-body text-primary">
-                            <h5 id="card-title" class="card-title">Click a button</h5>
-                            <h6 id="card-subtitle" class="card-title"></h6>
-                            <p id="card-text" class="card-text text-secondary"></p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
         </div>
 </body>
+<script src="outputcards.js"></script>
 <script src="app.js"></script>
 <script src="dialogue.js"></script>
 
 </html>
+
+<!-- <button onClick="getCommand(`weatherForecast`)" id="weatherforecast" type="button"
+                        class="btn btn-dark mybutton">
+                        Weather Forecast</button>

@@ -7,6 +7,7 @@ Date.prototype.formatMMDDYYYY = function () {
 
 let longitude
 let latitude
+let output = document.getElementById("output")
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction)
@@ -50,11 +51,14 @@ async function getCommand(keyword) {
 
     //switches to the right body content for each command
     // console.log(keyword)
+    console.log(keyword)
     console.log(`lat: ${latitude}, lng: ${longitude}`)
     switch (keyword) {
         case "weatherNow":
             queryby = weatherNow()
             func = handleWeatherNow
+            createCard = weatherNowCard
+
             break
         case "weatherForecast":
             queryby = weatherForecast()
@@ -83,7 +87,12 @@ async function getCommand(keyword) {
             //here the object has been stripped down to be specific for each call
 
             //populate card with info
-            func(response, keyword)
+            //func(response, keyword)
+            console.log(keyword)
+            console.log('ddddd')
+            output.innerHTML = createOutputCardHTML(response, keyword)
+            document.getElementById('serverprompt').innerHTML = `${response.response} `
+
 
 
         })
@@ -173,8 +182,11 @@ function dialogprogression() {
 
 
     //getCommand(parsedCmd)
+}
 
 
+function closeDialogUI() {
+    output.innerHTML = ""
 }
 
 
