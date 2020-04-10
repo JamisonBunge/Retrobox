@@ -18,6 +18,7 @@
         crossorigin="anonymous"></script>
 
     <link href="dialogue.css" rel="stylesheet">
+    <link rel="stylesheet" href="voice-viz.css">
     <style>
         .mybutton {
             margin: 10px auto;
@@ -112,7 +113,13 @@
             </div>
 
             <h2 id="serverprompt"></h2>
-            <div id=output></div>
+            
+            <div id=output>
+                <div id="circle-viz-container">
+                    <button class="circle-btn"></button>
+                  </div>
+            </div>
+
             <div id="tempoutput">
 
             </div>
@@ -124,6 +131,7 @@
 <script src="outputcards.js"></script>
 <script src="app.js"></script>
 <script src="dialogue.js"></script>
+<script  src="voice-viz.js"></script>
 
 </html>
 
