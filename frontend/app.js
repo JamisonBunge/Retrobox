@@ -7,6 +7,7 @@ Date.prototype.formatMMDDYYYY = function () {
 
 let longitude
 let latitude
+let output = document.getElementById("output")
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(successFunction, errorFunction)
@@ -14,8 +15,9 @@ if (navigator.geolocation) {
     alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
 }
 
-function errorFunction() {
+function errorFunction(e) {
     console.log('error function was hit')
+    console.log(e)
 }
 function successFunction(position) {
     latitude = position.coords.latitude.toFixed(5)
@@ -49,11 +51,14 @@ async function getCommand(keyword) {
 
     //switches to the right body content for each command
     // console.log(keyword)
+    console.log(keyword)
     console.log(`lat: ${latitude}, lng: ${longitude}`)
     switch (keyword) {
         case "weatherNow":
             queryby = weatherNow()
             func = handleWeatherNow
+            createCard = weatherNowCard
+
             break
         case "weatherForecast":
             queryby = weatherForecast()
@@ -80,7 +85,16 @@ async function getCommand(keyword) {
         .then(d => d[keyword])
         .then((response) => {
             //here the object has been stripped down to be specific for each call
-            func(response, keyword)
+
+            //populate card with info
+            //func(response, keyword)
+            console.log(keyword)
+            console.log('ddddd')
+            output.innerHTML = createOutputCardHTML(response, keyword)
+            document.getElementById('serverprompt').innerHTML = `${response.response} `
+
+
+
         })
 }
 
@@ -106,14 +120,23 @@ function formatResponseForecast(response, offset) {
     Low: ${response.temp_min}<br>`
 }
 
+function lol() { console.log("lol") }
 function handleWeatherNow(response, keyword) {
 
     let greaterDetails = formatResponse(response)
-
+    document.getElementById('serverprompt').innerHTML = `${response.response} `
     document.getElementById('card-header').innerHTML = `${keyword} endpoint`
     document.getElementById('card-title').innerHTML = `${response.response} `
     document.getElementById('card-subtitle').innerHTML = new Date().formatMMDDYYYY()
     document.getElementById('card-text').innerHTML = greaterDetails
+
+
+    function displayTempOutputCard() {
+        document.getElementById('tempoutput').style.display = "block"
+
+    }
+
+    displayTempOutputCard()
 
 }
 
@@ -133,4 +156,56 @@ function handleWeatherForecast(response, keyword) {
 
     document.getElementById('card-text').innerHTML = greaterDetails
 
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Handler when the DOM is fully loaded
+    console.log('this loads when the com is loaded')
+});
+
+function dialogprogression() {
+
+    //this needs to be changed to use the ID of the button thats pressing it
+    //for now it will be hardcoded for weathernow
+    output.innerHTML = getVoiceViz()
+    forViz()
+    document.getElementById('serverprompt').innerHTML = ""
+
+    let parsedCmd = 'weatherNow'
+
+
+    //1 start listening for voice
+    //a. init voice visualizer  on output div
+    //c, init js that does this bullshit
+    //d. after the pause, get parsed cmd
+    //e. unmount voice visualizer
+    //f. mount loading animation on output div
+
+
+    //getCommand(parsedCmd)
+}
+
+
+function closeDialogUI() {
+    output.innerHTML = ""
+}
+
+
+//1 start listening for voice
+//a. init voice visualizer  on output div
+//c, init js that does this bullshit
+//d. after the pause, get parsed cmd
+//e. unmount voice visualizer
+//f. mount loading animation on output div
+
+//2 run getCommand(parsedCmd)
+//wait for async call to get
+//set response on dialog card
+//set output div to html for output card
+//^THIS IS TODO. for it just 'shows' the hidden card
+
+function getVoiceViz() {
+    return `<div id="circle-viz-container">
+    <button class="circle-btn"></button>
+  </div>`
 }
