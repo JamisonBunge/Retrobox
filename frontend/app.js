@@ -14,8 +14,9 @@ if (navigator.geolocation) {
     alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
 }
 
-function errorFunction() {
+function errorFunction(e) {
     console.log('error function was hit')
+    console.log(e)
 }
 function successFunction(position) {
     latitude = position.coords.latitude.toFixed(5)
