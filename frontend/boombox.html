@@ -7,16 +7,45 @@
     <title>Document</title>
 </head>
 <style>
-    body {
-        width: 100%;
+    .boombox {
+        /* width: 100%; */
+        width: 1000px;
         height: 100vh;
         background-image: url("boomboxsvg.svg");
         background-size: auto 100vh;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        /* width: 960px;
+        height: 540px; */
+
     }
-</style>
+
+    .iframe-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-170px, -5px);
+            z-index: 10; /* brings iframe to the front */
+            /* background: #ff0; */
+            width: 365px;
+            height: 205px;
+        }
+        .screen {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
 
 <body>
+    <div class="iframe-container">
+        <iframe src="./index.html" class="screen"></iframe>
+    </div>
 
+    <div class="boombox"> </div>
 </body>
 
 </html>
