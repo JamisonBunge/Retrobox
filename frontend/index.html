@@ -32,7 +32,6 @@
         .voicebutton {
             width: 100%;
             margin-bottom: 20px;
-
         }
 
         .mycard {
@@ -47,8 +46,8 @@
             display: contents;
         }
 
-        .iframe-container {
-            height: 300px
+        .clock-container {
+            height: 300px;
         }
 
         #clock-iframe {
@@ -60,8 +59,6 @@
         .exitbutton {
             position: absolute;
             bottom: 0px;
-
-
         }
 
         .dialogparent {
@@ -74,11 +71,23 @@
             background: green;
 
         }
+
+        .iframe-container {
+            position: relative;
+            padding: 5%;
+        }
+
+        .start-button-container {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 0 40px 20px 40px;
+        }
     </style>
 </head>
 
 <body style="background: #f3f3f3">
-    <div class="container">
+    <!-- <div class="container">
         <h1 class="text-center mytitle">Smart Speaker Demo</h1>
 
         <div class="row">
@@ -94,7 +103,28 @@
             </div>
         </div>
 
+        <div class="iframe-container">
+            <iframe src="clock.html" id="clock-iframe"></iframe>
+        </div>
+    </div> -->
+
+
+
+    <h1 class="text-center mytitle">Smart Speaker Demo</h1>
+
+    <div class="iframe-container">
+        <div class="clock-container">
+            <iframe src="clock.html" id="clock-iframe"></iframe>
+        </div>
     </div>
+    
+    <div class="start-button-container">
+        <button id="voice" type="button" class="btn btn-dark voicebutton startbutton"
+        onClick="dialogprogression()">Voice</button>
+    </div>
+
+
+
     <div class="wrap">
         <div class='content dialogparent'>
             <!---
