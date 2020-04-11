@@ -39,7 +39,8 @@
         }
 
         .mytitle {
-            margin: 10px auto;
+            margin: 0 auto;
+            padding-top: 10px;
         }
 
         .showcard {
@@ -47,7 +48,8 @@
         }
 
         .clock-container {
-            height: 300px;
+            height: 270px;
+            width: 450px;
         }
 
         #clock-iframe {
@@ -73,15 +75,18 @@
         }
 
         .iframe-container {
-            position: relative;
-            padding: 5%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -150px);
         }
 
         .start-button-container {
+            margin: 0;
             position: absolute;
             bottom: 0px;
             width: 100%;
-            padding: 0 40px 20px 40px;
+            padding: 0 40px 0px 40px;
         }
     </style>
 </head>
@@ -117,7 +122,7 @@
             <iframe src="clock.html" id="clock-iframe"></iframe>
         </div>
     </div>
-    
+
     <div class="start-button-container">
         <button id="voice" type="button" class="btn btn-dark voicebutton startbutton"
         onClick="dialogprogression()">Voice</button>
