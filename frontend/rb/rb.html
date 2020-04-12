@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
+    <title>RetroBox</title>
+    <style>
+        body {
+
+            background: grey;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top {
+            background: red;
+            height: 25vh;
+        }
+
+        .bottom {
+            height: 75vh;
+        }
+
+        .middlecassette {
+            background: #3f3f3f;
+            margin-top: 10px;
+            height: 80%;
+            z-index: 10;
+            /* brings iframe to the front */
+        }
+
+        .screen {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-sm-2 top" style="background: #546AFC;">aad</div>
+        <div class="col-sm-8 top" style="background: #A0FFCE;">d</div>
+        <div class="col-sm-2 top" style="background: #546AFC;">dd</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 bottom" style="background: #A0FFCE;">aad</div>
+        <div class="col-sm-6 bottom" style="background: #546AFC;">
+            <div class="middlecassette">
+                <iframe src="../index.html" class="screen"></iframe>
+            </div>
+
+        </div>
+        <div class="col-sm-3 bottom" style="background: #A0FFCE;">dd</div>
+    </div>
+
+</body>
+
+</html>
