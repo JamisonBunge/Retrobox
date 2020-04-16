@@ -158,23 +158,40 @@
             /* font-size: 23px; */
             font-weight: 600;
             background-color: #FC6CA3;
-            width: 25%;
+            width: 10%;
             height: 70px;
             max-height: 70%;
             margin: 0 2px;
             color: #fff;
 
+            position: relative;
             border: 2px solid black;
             padding: 10px 30px;
             /* font-family: Courier; */
             box-shadow: -2px 3px 0px 0px black;
             transition: transform 0.1s ease, box-shadow 0.1s ease;
+            border-radius: 5px;
         }
 
         .retro-button:hover {
             transform: translateY(2px);
             box-shadow: 0px 0px 0px 0px #FC6CA3;
         }
+
+        .retro-button img {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            padding: 0;
+            margin: 0;
+            height: 50%;
+            width: 50%;
+
+        }
+
 
         .retro-button:active {
             outline: none;
@@ -224,9 +241,29 @@
 
 
                 <div class="cassette-buttons">
-                    <button class="retro-button" type="button" name="button">Voice</button>
-                    <button class="retro-button" type="button" name="button">Play Spotify</button>
-                    <button class="retro-button" type="button" name="button">Something</button>
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-microphone-4.svg" />
+                    </button>
+                    <!-- <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-magnifier-1.svg" />
+                    </button> -->
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/start.svg" />
+                    </button>
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-arrow-31.svg" class="flip" />
+                    </button>
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-arrow-31.svg" />
+                    </button>
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-audio-15.svg" />
+                    </button>
+                    <button class="retro-button" type="button" name="button">
+                        <img src="../assets/icons/iconmonstr-audio-13.svg" />
+                    </button>
+
+
                 </div>
 
             </div>
