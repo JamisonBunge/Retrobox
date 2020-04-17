@@ -30,7 +30,8 @@
 
         @font-face {
             font-family: "BarcadeNoBarBold, Barcade No Bar Bold";
-            src: 'font/barcadnobarbold.ttf'
+            font-weight: bold;
+            src: url('./fonts/barcadnobarbold.ttf');
         }
 
         .top {
@@ -210,7 +211,7 @@
         }
 
         .logo-wrapper {
-            height: 40%;
+            width: 100%;
             /* background: green; */
         }
 
@@ -227,6 +228,10 @@
             padding: 0px;
             height: 100%;
         }
+
+        .temp {
+            font-family: "BarcadeNoBarBold, Barcade No Bar Bold";
+        }
     </style>
 
 </head>
@@ -240,10 +245,10 @@
             <div id="top-middle-area" class="col-sm-8 top">
 
                 <div class="row full">
-                    <div class="col-sm-4">
-                        <div class="logo-wrapper"><img src="../assets/logo1.svg" /></div>
+                    <div class="col-sm-7">
+                        <div class="logo-wrapper"><img src="./assets/RetroboxLogo.png" /></div>
                     </div>
-                    <div class="col-sm-5 spaceholder"></div>
+                    <div class="col-sm-2 spaceholder"></div>
 
 
                     <div class="col-sm-1 sliderholder nopadding">
@@ -292,7 +297,7 @@
                 <div class="big-speaker"><img src="../bigspeaker.png" /></div>
             </div>
             <div id="bot-middle-area" class="col-sm-6 bottom">
-
+                <!-- <p class="temp">test</p> -->
                 <div class="cassette-holder">
                     <iframe src="../index.html" class="myscreen screen">.</iframe>
                 </div>

@@ -79,26 +79,32 @@ input[type="range"] {
 }
 
 .low input[type=range]::-moz-range-thumb {
-    background-image: url('../assets/low90.svg');
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
+    background-image: url('../assets/low.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
 }
 
 .low input[type=range]::-webkit-slider-thumb {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
     -webkit-appearance: none;
-    background: url('../assets/low90.svg') no-repeat center;
+    background: url('../assets/low.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
     transform: translate(0, -20px);
 }
 
@@ -119,51 +125,79 @@ input[type=range]::-moz-focus-outer {
 /* DO NOT UPDATE THIS WITHOUT COPY PASTING, EDIT THE LOW CLASS AND MOVE IT OVER */
 
 .mid input[type=range]::-moz-range-thumb {
-    background-image: url('../assets/mid90.svg');
+
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
+    background-image: url('../assets/mid.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
 }
 
+
+
 .mid input[type=range]::-webkit-slider-thumb {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
+
     -webkit-appearance: none;
-    background: url('../assets/mid90.svg') no-repeat center;
+    background: url('../assets/mid.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
     transform: translate(0, -20px);
 }
 
 
 
 .high input[type=range]::-moz-range-thumb {
-    background-image: url('../assets/high90.svg');
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
+    background-image: url('../assets/high.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
 }
 
 .high input[type=range]::-webkit-slider-thumb {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 2px 2px 0px 0px black;
+
     -webkit-appearance: none;
-    background: url('../assets/high90.svg') no-repeat center;
+    background: url('../assets/high.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
     border-radius: 5px;
-    height: 60px;
-    width: 30px;
+    height: 55px;
+    width: 25px;
     transform: translate(0, -20px);
+}
+
+
+
+/* for animation  */
+input[type=range]::-moz-range-thumb:hover {
+    transform: translateX(1px);
+    box-shadow: 0px 0px 0px 0px #FC6CA3;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+    /* transform: translateX(1px); this is broken on chrome and safari*/
+    box-shadow: 0px 0px 0px 0px #FC6CA3;
 }
