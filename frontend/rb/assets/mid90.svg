@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="40" viewBox="0 0 22 40">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="40" height="22" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_2" data-name="Repeat Grid 2" transform="translate(0 40) rotate(-90)" clip-path="url(#clip-path)">
+    <g transform="translate(-1053 -197)">
+      <text id="MId" transform="translate(1073 214)" font-size="20" font-family="BarcadeNoBarBold, Barcade No Bar Bold"><tspan x="-16.99" y="0">MId</tspan></text>
+    </g>
+  </g>
+</svg>

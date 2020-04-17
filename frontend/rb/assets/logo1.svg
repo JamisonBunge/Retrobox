@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="494.362" height="255.553" viewBox="0 0 494.362 255.553">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="494.362" height="255.553" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Component_1_1" data-name="Component 1 – 1" clip-path="url(#clip-path)">
+    <g id="Group_1" data-name="Group 1" transform="translate(-522.638 -176)">
+      <text id="RETRO" transform="translate(523 295)" fill="#fc6ca3" font-size="158" font-family="BarcadeNoBar, Barcade No Bar"><tspan x="0" y="0">RETRO</tspan></text>
+      <text id="BOX" transform="translate(522.638 404.553)" fill="#fc6ca3" font-size="158" font-family="BarcadeNoBar, Barcade No Bar"><tspan x="0" y="0">BOX</tspan></text>
+    </g>
+    <g id="radio" transform="translate(349.333 119.514)">
+      <g id="Group_2" data-name="Group 2" transform="translate(0 8.018)">
+        <path id="Path_9" data-name="Path 9" d="M92.688,37.494H35L88.788,13.773,85.881,8.018,19.042,37.494h-7.3C5.258,37.494,0,42.407,0,48.467v43.1c0,6.061,5.258,10.974,11.745,10.974H92.688c6.486,0,11.745-4.913,11.745-10.974v-43.1C104.433,42.407,99.174,37.494,92.688,37.494ZM17.344,89.253H11V82.89h6.344Zm11.392,0H22.392V82.89h6.344Zm11.392,0H33.784V82.89h6.344v6.364Zm0-10.7H11V72.186H40.127Zm0-10.7H11V61.482H40.127Zm0-10.7H11V50.778H40.127ZM72.6,89.253c-11.353,0-20.59-8.63-20.59-19.238S61.247,50.777,72.6,50.777s20.59,8.63,20.59,19.238S83.954,89.253,72.6,89.253Z" transform="translate(0 -8.018)" fill="#fc6ca3"/>
+      </g>
+    </g>
+  </g>
+</svg>
