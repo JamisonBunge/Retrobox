@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Speaker Demo</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
+
+    <link href="dialogue.css" rel="stylesheet">
+    <link rel="stylesheet" href="voice-viz.css">
+    <style>
+        .mybutton {
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        .centerdiv {
+            text-align: center;
+        }
+
+        .voicebutton {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .mycard {
+            width: 100%;
+        }
+
+        .mytitle {
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+
+        .showcard {
+            display: contents;
+        }
+
+        .clock-container {
+            height: 270px;
+            width: 450px;
+        }
+
+        #clock-iframe {
+            border: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .exitbutton {
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .dialogparent {
+            position: relative;
+            ;
+            height: 100%;
+        }
+
+        #tempoutput {
+            background: green;
+
+        }
+
+        .iframe-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -150px);
+        }
+
+        .start-button-container {
+            margin: 0;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 0 40px 0px 40px;
+        }
+    </style>
+</head>
+
+<body style="background: #f3f3f3">
+    <!-- <div class="container">
+        <h1 class="text-center mytitle">Smart Speaker Demo</h1>
+
+        <div class="row">
+            <div class="col-sm-12 iframe-container">
+                <iframe src="clock.html" id="clock-iframe"></iframe>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 centerdiv">
+                <button id="voice" type="button" class="btn btn-dark voicebutton"
+                    onClick="dialogprogression()">Voice</button>
+            </div>
+        </div>
+
+        <div class="iframe-container">
+            <iframe src="clock.html" id="clock-iframe"></iframe>
+        </div>
+    </div> -->
+
+
+
+    <h1 class="text-center mytitle">Smart Speaker Demo</h1>
+
+    <div class="iframe-container">
+        <div class="clock-container">
+            <iframe src="clock.html" id="clock-iframe"></iframe>
+        </div>
+    </div>
+
+    <div class="start-button-container">
+        <button id="voice" type="button" class="btn btn-dark voicebutton startbutton"
+            onClick="dialogprogression()">Voice</button>
+    </div>
+
+
+
+    <div class="wrap">
+        <div class='content dialogparent'>
+            <!---
+                THIS IS WHERE THE DIALOG_UI STARTS
+                temp css grid to put the temp button on the same line
+                -->
+            <div class="row">
+                <div class="col-sm-4">
+                    <h1 id="welcomeprompt">How can i help?</h1>
+                </div>
+                <div class="col-sm-4">
+                    <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
+                        class="btn btn-dark ">Weather
+                        Now</button>
+                </div>
+            </div>
+
+            <h2 id="serverprompt"></h2>
+
+            <div id=output></div>
+
+            <div id="tempoutput">
+
+            </div>
+            <button id="voice" onClick="closeDialogUI()" type="button"
+                class="btn btn-dark voicebutton exitbutton">Exit</button>
+            <!-- this button should always be on the screen -->
+        </div>
+</body>
+<script src="outputcards.js"></script>
+<script src="app.js"></script>
+<script src="dialogue.js"></script>
+<script src="voice-viz.js"></script>
+
+</html>
+
+<!-- <button onClick="getCommand(`weatherForecast`)" id="weatherforecast" type="button"
+                        class="btn btn-dark mybutton">
+                        Weather Forecast</button>
