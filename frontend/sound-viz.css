@@ -1,14 +1,33 @@
-#sound-viz-container {
+.sound-viz-container {
     /* background-color: black; */
-    position: absolute;
+    /* position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
 }   
+
+.sound-viz-big {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+}
+
+.sound-viz-small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 40px;
+}
+
 .sound-button-circle {
-    width: 140px;
-    height: 140px;
-    background-color: #303030; /* animation color */
+    width: 100%;
+    height: 100%;
+    background-color: #a515b8; /* animation color */
     opacity: .2;
     border-radius: 50%;
     -webkit-transform-origin: center center;
@@ -20,10 +39,10 @@
 }
 
 .sound-btn {
+  width: 100%;
+  height: 100%;
   position: absolute;
-    width: 140px;
-    height: 140px;
-  border-radius: 70px;
+  border-radius: 50%;
   outline: none;
   background-color: #303030; /* main button color */
 }

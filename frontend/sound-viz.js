@@ -5,7 +5,9 @@ class CircleViz {
         this.containerEl = containerEl;
         this.stopped = true;
         this.circle = document.createElement('div');
+
         this.circle.classList.add('sound-button-circle');
+
         this.containerEl.appendChild(this.circle);
         this.isMobile = navigator.userAgent.indexOf("Mobi") !== -1
 
@@ -13,15 +15,6 @@ class CircleViz {
 
         this.soundAllowed(this.myAudio)
 
-        // if (this.isMobile) {
-        //     this.doDraw();
-        // } else {
-        //     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        //         navigator.mediaDevices
-        //             .getUserMedia({ audio: true })
-        //             .then(this.soundAllowed.bind(this))
-        //     }
-        // }
     }
     soundAllowed(stream) {
         this.audioContext = new AudioContext()
@@ -88,7 +81,25 @@ class CircleViz {
     }
 }
 
-const circleVizContainer = document.getElementById("sound-viz-container")
+// function initialDrawing() {
+//     for (let container of document.getElementsByClassName("small-speaker") ) {
+//         smallWidth = container.offsetWidth;
+//         smallHeight = container.offsetHeight;
+//         console.log( smallWidth + ',' + smallHeight )
+//         // container.getElementsByClassName("sound-btn")[0].style.height = smallHeight
+//     }
+
+//     for (let container of document.getElementsByClassName("big-speaker") ) {
+//         bigWidth = container.offsetWidth;
+//         bigHeight = container.offsetHeight;
+//         console.log( bigWidth + ',' + bigHeight )
+//         // container.getElementsByClassName("sound-btn")[0].style.width = bigWidth
+//     }
+// }
+
+// initialDrawing()
+
+const circleVizContainer = document.getElementsByClassName("sound-viz-container")[0]
 const circleViz = new CircleViz(circleVizContainer)
 let animationStopped = true;
 //  circleVizContainer.addEventListener("click", () => {
