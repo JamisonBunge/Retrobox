@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/sliders.css">
+    <link rel="stylesheet" href="styles/screen.scss" type="text/scss" charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -16,6 +17,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
         integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
         crossorigin="anonymous"></script>
+
+    <link href="dialogue.css" rel="stylesheet">
+    <link rel="stylesheet" href="voice-viz.css">
 
     <title>RetroBox</title>
     <style>
@@ -59,6 +63,8 @@
         .myscreen {
             height: 100%;
             width: 100%;
+            background: #f3f3f3;
+            border: 4px solid black;
         }
 
         #top-left-area {
@@ -232,6 +238,85 @@
         .temp {
             font-family: "BarcadeNoBarBold, Barcade No Bar Bold";
         }
+
+
+        .mybutton {
+            margin: 10px auto;
+            width: 100%;
+        }
+
+        .centerdiv {
+            text-align: center;
+        }
+
+        .voicebutton {
+            /* width: 100%;
+            margin-bottom: 20px; */
+        }
+
+        .mycard {
+            width: 100%;
+        }
+
+        .mytitle {
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+
+        .showcard {
+            display: contents;
+        }
+
+        .clock-container {
+            width: 100%;
+            height: 100%;
+            background: rgb(201, 201, 201);
+        }
+
+        #clock-iframe {
+            border: 0;
+            margin-top: 10%;
+            height: 100%;
+            width: 100%;
+            /* background: red; */
+            /* top: 50%;
+            transform: translate(0%, 25%); */
+        }
+
+        .exitbutton {
+            position: absolute;
+            bottom: 0px;
+        }
+
+        .dialogparent {
+            position: relative;
+            ;
+            height: 100%;
+        }
+
+        #tempoutput {
+            background: green;
+
+        }
+
+        .iframe-container {
+            /* position: absolute; */
+            height: 100%;
+            width: 100%;
+            /*
+            background: yellow; */
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -150%); */
+        }
+
+        .start-button-container {
+            margin: 0;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            padding: 0 40px 0px 40px;
+        }
     </style>
 
 </head>
@@ -240,13 +325,13 @@
     <div class="mycont">
         <div class="row">
             <div id="top-left-area" class="col-sm-2 top">
-                <div class="small-speaker"><img src="/assets/smallspeaker.png" /></div>
+                <div class="small-speaker"><img src="assets/smallspeaker.png" /></div>
             </div>
             <div id="top-middle-area" class="col-sm-8 top">
 
                 <div class="row full">
                     <div class="col-sm-7">
-                        <div class="logo-wrapper"><img src="/assets/RetroboxLogo.png" /></div>
+                        <div class="logo-wrapper"><img src="assets/RetroboxLogo.png" /></div>
                     </div>
                     <div class="col-sm-2 spaceholder"></div>
 
@@ -289,42 +374,83 @@
 
             </div>
             <div id="top-right-area" class="col-sm-2 top">
-                <div class="small-speaker"><img src="/assets/smallspeaker.png" /></div>
+                <div class="small-speaker"><img src="assets/smallspeaker.png" /></div>
             </div>
         </div>
         <div class="row">
             <div id="bot-left-area" class="col-sm-3 bottom">
-                <div class="big-speaker"><img src="/assets/bigspeaker.png" /></div>
+                <div class="big-speaker"><img src="assets/bigspeaker.png" /></div>
             </div>
             <div id="bot-middle-area" class="col-sm-6 bottom">
                 <!-- <p class="temp">test</p> -->
                 <div class="cassette-holder">
-                    <iframe src="/old_root/old_index.html" class="myscreen screen">.</iframe>
+                    <!-- <iframe src="/old_root/old_index.html" class="myscreen screen">.</iframe> -->
+                    <div class="myscreen screen">
+                        <!-- <h1 class="text-center mytitle">Smart Speaker Demo</h1> -->
+
+                        <div class="iframe-container">
+                            <div class="clock-container">
+                                <iframe src="clock.html" id="clock-iframe"></iframe>
+                            </div>
+                        </div>
+
+
+                        <div class="wrap">
+                            <div class='content dialogparent'>
+                                <!-- -
+                THIS IS WHERE THE DIALOG_UI STARTS
+                temp css grid to put the temp button on the same line
+                -->
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h1 id="welcomeprompt">How can i help?</h1>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
+                                            class="btn btn-dark ">Weather
+                                            Now</button>
+                                    </div>
+                                </div>
+
+                                <h2 id="serverprompt"></h2>
+
+                                <div id=output></div>
+
+                                <div id="tempoutput">
+
+                                </div>
+                                <button id="voice" onClick="closeDialogUI()" type="button"
+                                    class="btn btn-dark voicebutton exitbutton">Exit</button>
+                                <!-- this button should always be on the screen -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
 
                 <div class="cassette-buttons">
-                    <button class="retro-button" type="button" name="button">
-                        <img src="../assets/icons/iconmonstr-microphone-4.svg" />
+                    <button class="retro-button voicebutton startbutton" type="button" name="button"
+                        onClick="dialogprogression()">
+                        <img src="assets/icons/iconmonstr-microphone-4.svg" />
                     </button>
                     <!-- <button class="retro-button" type="button" name="button">
                         <img src="../assets/icons/iconmonstr-magnifier-1.svg" />
                     </button> -->
                     <button class="retro-button" type="button" name="button">
-                        <img src="/assets/icons/start.svg" />
+                        <img src="assets/icons/start.svg" />
                     </button>
                     <button class="retro-button flip" type="button" name="button">
-                        <img src="/assets/icons/iconmonstr-back.svg" class="flip" />
+                        <img src="assets/icons/iconmonstr-back.svg" class="flip" />
                     </button>
                     <button class="retro-button" type="button" name="button">
-                        <img src="/assets/icons/iconmonstr-arrow-31.svg" />
+                        <img src="assets/icons/iconmonstr-arrow-31.svg" />
                     </button>
                     <button class="retro-button" type="button" name="button">
-                        <img src="/assets/icons/iconmonstr-audio-15.svg" />
+                        <img src="assets/icons/iconmonstr-audio-15.svg" />
                     </button>
                     <button class="retro-button" type="button" name="button">
-                        <img src="/assets/icons/iconmonstr-audio-13.svg" />
+                        <img src="assets/icons/iconmonstr-audio-13.svg" />
                     </button>
 
 
@@ -332,13 +458,17 @@
 
             </div>
             <div id="bot-right-area" class="col-sm-3 bottom" style="background: #A0FFCE;">
-                <div class="big-speaker"><img src="/assets/bigspeaker.png" /></div>
+                <div class="big-speaker"><img src="assets/bigspeaker.png" /></div>
             </div>
         </div>
     </div>
 
 </body>
 <script src="rb.js"></script>
+<script src="outputcards.js"></script>
+<script src="app.js"></script>
+<script src="dialogue.js"></script>
+<script src="voice-viz.js"></script>
 
 
 </html>
