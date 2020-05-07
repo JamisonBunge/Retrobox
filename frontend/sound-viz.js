@@ -7,6 +7,8 @@ class CircleVizCluster {
             this.circles.push(new CircleViz(container))
         }
         this.stopped = true;
+        this.count = 0;
+        this.color = [255,0,255];
 
         this.myAudio = document.getElementById("dummy-player");
         this.soundAllowed(this.myAudio)
@@ -37,17 +39,42 @@ class CircleVizCluster {
     }
 
     doDraw() {
+        this.changeColor()
         if (!this.stopped) {
             let newScale = this.getCircleScale();
             for (let circle of this.circles) {
-                circle.doDraw(newScale)
+                circle.doDraw(newScale, this.color)
             }
         } else {
             for (let circle of this.circles) {
-                circle.doDraw(0)
+                circle.doDraw(0, this.color)
             }
         }
         this.animation = requestAnimationFrame(this.doDraw.bind(this));
+    }
+
+    changeColor() {
+        if (this.count > 0 && this.count <= 100) {
+            this.color[0] -= (255 - 100) / 100;
+            this.color[1] += 1;
+        }
+
+        if (this.count > 100 && this.count <= 200) {
+            this.color[1] += (255 - 100) / 100;
+        }
+
+        if (this.count > 200 && this.count <= 300) {
+            this.color[0] += (255 - 100) / 100;
+            this.color[1] -= 255 / 100;
+            
+        }
+
+        if (this.count > 300) {
+            this.color = [255, 0, 255]
+            this.count = 0;
+        }
+
+        this.count += 1
     }
 
     startAnimation() {
@@ -80,7 +107,7 @@ class CircleViz {
 
     }
 
-    doDraw(newScale) {
+    doDraw(newScale, color) {
         if (!this.stopped) {
             this.circle.style.transform = 'scale(' + newScale + ')';
         } else {
@@ -93,6 +120,7 @@ class CircleViz {
                 }
             }
         }
+        this.circle.style.backgroundColor = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')'
         // this.animation = requestAnimationFrame(this.doDraw.bind(this));
     }
 
