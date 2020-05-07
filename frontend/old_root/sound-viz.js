@@ -1,5 +1,5 @@
 
-try {
+// try {
     window.AudioContext = window.AudioContext || window.webkitAudioContext
     class CircleViz {
         constructor(containerEl) {
@@ -10,9 +10,9 @@ try {
             this.containerEl.appendChild(this.circle);
             this.isMobile = navigator.userAgent.indexOf("Mobi") !== -1
 
-            var myAudio = document.querySelector('audio');
+            this.myAudio = document.getElementById("dummy-player");
 
-            this.soundAllowed(myAudio)
+            this.soundAllowed(this.myAudio)
 
             // if (this.isMobile) {
             //     this.doDraw();
@@ -78,14 +78,15 @@ try {
                 this.containerEl.style.opacity = 1;
                 this.circle.opacity = 1;
                 this.stopped = false;
+                this.audioContext.resume()
             }
         }
 
-        //   stopAnimation(){
-        //     this.stopped = true;
-        //       this.containerEl.style.opacity = .7;
-        //       this.circle.opacity = 0;
-        //   }
+          stopAnimation(){
+            this.stopped = true;
+              this.containerEl.style.opacity = 1;
+              this.circle.opacity = 0;
+          }
     }
 
     const circleVizContainer = document.getElementById("circle-viz-container")
@@ -95,12 +96,20 @@ try {
     //    animationStoped ? circleViz.startAnimation() : circleViz.stopAnimation()
     //    animationStoped = !animationStoped
     //  })
-    circleViz.startAnimation()
-    document.querySelector('button').addEventListener('click', circleViz.startAnimation() {
-        audioContext.resume().then(() => {
-          console.log('Playback resumed successfully');
-        });
+    // circleViz.startAnimation()
+
+    document.getElementById("play-button").addEventListener('click', function() {
+        document.getElementById("dummy-player").play()
+        document.getElementById("actual-player").play()
+        circleViz.startAnimation()
     });
-} catch {
-    console.log('dr')
-}
+    
+    document.getElementById("pause-button").addEventListener('click', function() {
+        document.getElementById("dummy-player").pause()
+        document.getElementById("actual-player").pause()
+        circleViz.stopAnimation()
+        
+    });
+// } catch {
+//     console.log('dr')
+// }
