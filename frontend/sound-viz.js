@@ -1,21 +1,17 @@
-
 window.AudioContext = window.AudioContext || window.webkitAudioContext
-class CircleViz {
-    constructor(containerEl) {
-        this.containerEl = containerEl;
+
+class CircleVizCluster {
+    constructor(containers) {
+        this.circles = []
+        for (let container of containers) {
+            this.circles.push(new CircleViz(container))
+        }
         this.stopped = true;
-        this.circle = document.createElement('div');
-
-        this.circle.classList.add('sound-button-circle');
-
-        this.containerEl.appendChild(this.circle);
-        this.isMobile = navigator.userAgent.indexOf("Mobi") !== -1
 
         this.myAudio = document.getElementById("dummy-player");
-
         this.soundAllowed(this.myAudio)
-
     }
+
     soundAllowed(stream) {
         this.audioContext = new AudioContext()
         var audioStream = this.audioContext.createMediaElementSource(stream);
@@ -25,6 +21,7 @@ class CircleViz {
         this.frequencyArray = new Uint8Array(this.analyser.frequencyBinCount);
         this.doDraw();
     }
+
     getCircleScale() {
         let scale = 1;
         this.analyser.getByteFrequencyData(this.frequencyArray);
@@ -35,14 +32,57 @@ class CircleViz {
         }
         let freqAvg = freqSum / 255
         scale = 1 + ((freqAvg / 255) * 1.2)
+
         return scale;
     }
 
     doDraw() {
         if (!this.stopped) {
             let newScale = this.getCircleScale();
-            this.circle.style.transform = 'scale(' + newScale + ')';
+            for (let circle of this.circles) {
+                circle.doDraw(newScale)
+            }
+        } else {
+            for (let circle of this.circles) {
+                circle.doDraw(0)
+            }
+        }
+        this.animation = requestAnimationFrame(this.doDraw.bind(this));
+    }
 
+    startAnimation() {
+        if (this.stopped) {
+            this.stopped = false;
+            this.audioContext.resume()
+            for (let circle of this.circles) {
+                circle.startAnimation()
+            }
+        }
+    }
+
+    stopAnimation() {
+        if (!this.stopped) {
+            this.stopped = true;
+            for (let circle of this.circles) {
+                circle.stopAnimation()
+            }
+        }
+    }
+}
+
+class CircleViz {
+    constructor(containerEl) {
+        this.containerEl = containerEl;
+        this.stopped = true;
+        this.circle = document.createElement('div');
+        this.circle.classList.add('sound-button-circle');
+        this.containerEl.appendChild(this.circle);
+
+    }
+
+    doDraw(newScale) {
+        if (!this.stopped) {
+            this.circle.style.transform = 'scale(' + newScale + ')';
         } else {
             // stopped, slowly scale down
             let currScale = this.getCurrentScale();
@@ -53,7 +93,7 @@ class CircleViz {
                 }
             }
         }
-        this.animation = requestAnimationFrame(this.doDraw.bind(this));
+        // this.animation = requestAnimationFrame(this.doDraw.bind(this));
     }
 
     getCurrentScale() {
@@ -67,17 +107,18 @@ class CircleViz {
 
     startAnimation() {
         if (this.stopped) {
+            this.stopped = false;
             this.containerEl.style.opacity = 1;
             this.circle.opacity = 1;
-            this.stopped = false;
-            this.audioContext.resume()
         }
     }
 
     stopAnimation() {
-        this.stopped = true;
-        this.containerEl.style.opacity = 1;
-        this.circle.opacity = 0;
+        if (!this.stopped) {
+            this.stopped = true;
+            this.containerEl.style.opacity = 1;
+            this.circle.opacity = 0;
+        }
     }
 }
 
@@ -99,26 +140,21 @@ class CircleViz {
 
 // initialDrawing()
 
-const circleVizContainer = document.getElementsByClassName("sound-viz-container")[0]
-const circleViz = new CircleViz(circleVizContainer)
+const circleVizContainers = document.getElementsByClassName("sound-viz-container")
+const circleVizCluster = new CircleVizCluster(circleVizContainers)
 let animationStopped = true;
-//  circleVizContainer.addEventListener("click", () => {
-//    animationStoped ? circleViz.startAnimation() : circleViz.stopAnimation()
-//    animationStoped = !animationStoped
-//  })
-// circleViz.startAnimation()
 
 document.getElementById("play-button").addEventListener('click', function () {
     if (animationStopped) {
         animationStopped = false;
         document.getElementById("dummy-player").play()
         document.getElementById("actual-player").play()
-        circleViz.startAnimation()
+        circleVizCluster.startAnimation()
     } else {
         animationStopped = true;
         document.getElementById("dummy-player").pause()
         document.getElementById("actual-player").pause()
-        circleViz.stopAnimation()
+        circleVizCluster.stopAnimation()
     }
 });
 

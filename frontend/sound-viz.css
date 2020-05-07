@@ -27,7 +27,7 @@
 .sound-button-circle {
     width: 100%;
     height: 100%;
-    background-color: #a515b8; /* animation color */
+    background-color: #ff00ff; /* animation color */
     opacity: .2;
     border-radius: 50%;
     -webkit-transform-origin: center center;
