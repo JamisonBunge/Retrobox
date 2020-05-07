@@ -1,4 +1,4 @@
-let loadNewViz = () => {
+let pleasedothis = () => {
     "use strict";
     var paths = document.getElementsByTagName('path');
     var visualizer = document.getElementById('visualizer');
@@ -84,12 +84,18 @@ let loadNewViz = () => {
     }
 
     var soundNotAllowed = function (error) {
+        // h.innerHTML = "You must allow your microphone.";
         console.log(error);
     }
 
 
     let lol = () => {
-
+        // if (start) {
+        //     start = false;
+        //     this.innerHTML = "<span class='fa fa-play'></span>Start Listen";
+        //     this.className = "green-button";
+        // }
+        //  else {
         if (!permission) {
             navigator.mediaDevices.getUserMedia({ audio: true })
                 .then(soundAllowed)
@@ -98,8 +104,11 @@ let loadNewViz = () => {
             AudioContext = window.AudioContext || window.webkitAudioContext;
             audioContent = new AudioContext();
         }
-
+        //start = true;
+        // this.innerHTML = "<span class='fa fa-stop'></span>Stop Listen";
+        // this.className = "red-button";
+        // }
     };
-    // this.console.log('lol')
+    this.console.log('lol')
     lol()
 };

@@ -173,7 +173,7 @@ function dialogprogression() {
         output.innerHTML = getVoiceViz()
         output.innerHTML = newVoiceViz()
         // forViz()
-        loadViz()
+        loadNewViz()
         //startViz()
         document.getElementById('serverprompt').innerHTML = ""
 
@@ -224,19 +224,22 @@ function getVoiceViz() {
 
 function newVoiceViz() {
     return `
-    <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns: xlink="http://www.w3.org/1999/xlink">
+    <div id="voiceviz">
+    <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
             <mask id="mask">
                 <g id="maskGroup"></g>
             </mask>
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#db6247;stop-opacity:1" />
-                <stop offset="40%" style="stop-color:#f6e5d1;stop-opacity:1" />
-                <stop offset="60%" style="stop-color:#5c79c7;stop-opacity:1" />
-                <stop offset="85%" style="stop-color:#b758c0;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#222;stop-opacity:1" />
+                <stop offset="0%" style="stop-color:#FC6CA3;stop-opacity:1" />
+                <stop offset="40%" style="stop-color:#A0FFCE;stop-opacity:1" />
+                <stop offset="60%" style="stop-color:#546AFC;stop-opacity:1" />
+                <stop offset="85%" style="stop-color:#A0FFCE;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FC6CA3;stop-opacity:1" />
             </linearGradient>
         </defs>
         <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
-    </svg>`
+    </svg>
+</div>`
 }
