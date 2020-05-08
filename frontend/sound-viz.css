@@ -30,12 +30,3 @@
     -ms-transform: scale(1);
     transform: scale(1);
 }
-
-.sound-btn {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 50%;
-  outline: none;
-  background-color: #303030; /* main button color */
-}

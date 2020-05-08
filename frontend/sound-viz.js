@@ -42,12 +42,17 @@ class CircleVizCluster {
         this.changeColor()
         if (!this.stopped) {
             let newScale = this.getCircleScale();
+            newScale *= (1 + (Math.sin(2 * Math.PI * this.count / 60) + 1) / 15);
+
+            let offset = this.count % 3 - 1;
+            offset *= newScale / 1.5;
+
             for (let circle of this.circles) {
-                circle.doDraw(newScale, this.color)
+                circle.doDraw(newScale, this.color, offset);
             }
         } else {
             for (let circle of this.circles) {
-                circle.doDraw(0, this.color)
+                circle.doDraw(0, this.color, 0);
             }
         }
         this.animation = requestAnimationFrame(this.doDraw.bind(this));
@@ -101,15 +106,19 @@ class CircleViz {
     constructor(containerEl) {
         this.containerEl = containerEl;
         this.stopped = true;
+
         this.circle = document.createElement('div');
         this.circle.classList.add('sound-button-circle');
         this.containerEl.appendChild(this.circle);
 
+        this.image = this.containerEl.querySelector('img')
     }
 
-    doDraw(newScale, color) {
+    doDraw(newScale, color, offset) {
         if (!this.stopped) {
-            this.circle.style.transform = 'scale(' + newScale + ')';
+            this.circle.style.transform = 'scale(' + newScale*1.1 + ')';
+            this.image.style.transform = 'scale(' + (1 + newScale/8) + ')';
+            this.image.style.left = offset + "px";
         } else {
             // stopped, slowly scale down
             let currScale = this.getCurrentScale();
@@ -117,6 +126,8 @@ class CircleViz {
                 if (currScale > 0) {
                     currScale = Math.max(0, currScale - 0.05);
                     this.circle.style.transform = 'scale(' + currScale + ')';
+                    this.image.style.transform = 'scale(' + (1 + currScale/8) + ')';
+                    this.image.style.left = offset + "px";
                 }
             }
         }
