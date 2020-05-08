@@ -99,47 +99,26 @@
             margin: auto;
         }
 
-        .small-speaker {
-
+        .speaker {
             position: relative;
             width: 100%;
-            margin: 0;
             height: 100%;
-            padding: 0;
         }
 
-        /* .small-speaker img.wide { */
-        .small-speaker img {
+        .speaker .small-speaker-main {
             position: absolute;
-            ;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-
-            padding: 0;
-            margin: 0;
             height: 100%;
             width: auto;
         }
 
-        .big-speaker {
-
-            position: relative;
-            width: 100%;
-            margin: 0;
-            height: 100%;
-            padding: 0;
-        }
-
-        /* .small-speaker img.wide { */
-        .big-speaker img {
+        .speaker .big-speaker-main {
             position: absolute;
-            top: 60%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-
-            padding: 0;
-            margin: 0;
             height: auto;
             width: 100%;
         }
@@ -319,13 +298,22 @@
         }
     </style>
 
+    <link href="sound-viz.css" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="mycont">
         <div class="row">
             <div id="top-left-area" class="col-sm-2 top">
-                <div class="small-speaker"><img src="assets/smallspeaker.png" /></div>
+                <div class="speaker">
+                    <img class="small-speaker-main" src="assets/smallspeaker.png" />
+                    <div class="sound-viz-container sound-viz-small">
+                        <img class="speaker-inner" src="assets/inner speaker small.png" />
+                        <div class="sound-button-circle"></div>
+                    </div>
+                    <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
+                </div>
             </div>
             <div id="top-middle-area" class="col-sm-8 top">
 
@@ -374,12 +362,26 @@
 
             </div>
             <div id="top-right-area" class="col-sm-2 top">
-                <div class="small-speaker"><img src="assets/smallspeaker.png" /></div>
+                <div class="speaker">
+                    <img class="small-speaker-main"src="assets/smallspeaker.png" />
+                    <div class="sound-viz-container sound-viz-small">
+                        <img class="speaker-inner" src="assets/inner speaker small.png" />
+                        <div class="sound-button-circle"></div>
+                    </div>
+                    <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
+                </div>
             </div>
         </div>
         <div class="row">
             <div id="bot-left-area" class="col-sm-3 bottom">
-                <div class="big-speaker"><img src="assets/bigspeaker.png" /></div>
+                <div class="speaker">
+                    <img class="big-speaker-main" src="assets/bigspeaker.png" />
+                    <div class="sound-viz-container sound-viz-big">
+                        <img class="speaker-inner" src="assets/inner speaker big.png" />
+                        <div class="sound-button-circle"></div>
+                    </div>
+                    <!-- <img class="big-speaker-inner" src="assets/inner speaker big.png" /> -->
+                </div>
             </div>
             <div id="bot-middle-area" class="col-sm-6 bottom">
                 <!-- <p class="temp">test</p> -->
@@ -437,7 +439,7 @@
                     <!-- <button class="retro-button" type="button" name="button">
                         <img src="../assets/icons/iconmonstr-magnifier-1.svg" />
                     </button> -->
-                    <button class="retro-button" type="button" name="button">
+                    <button id="play-button" class="retro-button" type="button" name="button">
                         <img src="assets/icons/start.svg" />
                     </button>
                     <button class="retro-button flip" type="button" name="button">
@@ -458,17 +460,26 @@
 
             </div>
             <div id="bot-right-area" class="col-sm-3 bottom" style="background: #A0FFCE;">
-                <div class="big-speaker"><img src="assets/bigspeaker.png" /></div>
+                <div class="speaker">
+                    <img class="big-speaker-main" src="assets/bigspeaker.png" />
+                    <div class="sound-viz-container sound-viz-big">
+                        <img class="speaker-inner" src="assets/inner speaker big.png" />
+                        <div class="sound-button-circle"></div>
+                    </div>
+                    <!-- <img class="big-speaker-inner" src="assets/inner speaker big.png" /> -->
+                </div>
             </div>
         </div>
     </div>
 
+    <audio id="dummy-player" src="sound_input.wav"></audio>
+    <audio id="actual-player" src="sound_input.wav"></audio>
 </body>
 <script src="rb.js"></script>
 <script src="outputcards.js"></script>
 <script src="app.js"></script>
 <script src="dialogue.js"></script>
 <script src="voice-viz.js"></script>
-
+<script src="sound-viz.js"></script>
 
 </html>
