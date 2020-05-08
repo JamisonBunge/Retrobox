@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/sliders.css">
-    <link rel="stylesheet" href="styles/screen.scss" type="text/scss" charset="utf-8">
+    <link rel="stylesheet" href="assets/styles/sliders.css">
+    <link rel="stylesheet" href="assets/styles/screen.scss" type="text/scss" charset="utf-8">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -18,10 +18,10 @@
         integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
         crossorigin="anonymous"></script>
 
-    <link href="dialogue.css" rel="stylesheet">
-    <link href="newviz.css" rel="stylesheet">
+    <link href="assets/styles/dialogue.css" rel="stylesheet">
+    <link href="assets/styles/newviz.css" rel="stylesheet">
     <link href="assets/styles/loading.css" rel="stylesheet">
-    <link rel="stylesheet" href="voice-viz.css">
+    <link href="assets/styles/voice-viz.css" rel="stylesheet">
 
     <title>RetroBox</title>
     <style>
@@ -300,7 +300,7 @@
         }
     </style>
 
-    <link href="sound-viz.css" rel="stylesheet">
+    <link href="assets/styles/sound-viz.css" rel="stylesheet">
 
 </head>
 
@@ -365,7 +365,7 @@
             </div>
             <div id="top-right-area" class="col-sm-2 top">
                 <div class="speaker">
-                    <img class="small-speaker-main"src="assets/smallspeaker.png" />
+                    <img class="small-speaker-main" src="assets/smallspeaker.png" />
                     <div class="sound-viz-container sound-viz-small">
                         <img class="speaker-inner" src="assets/inner speaker small.png" />
                         <div class="sound-button-circle"></div>
@@ -394,7 +394,7 @@
 
                         <div class="iframe-container">
                             <div class="clock-container">
-                                <iframe src="clock.html" id="clock-iframe"></iframe>
+                                <iframe src="assets/html/clock.html" id="clock-iframe"></iframe>
                             </div>
                         </div>
 
@@ -459,8 +459,6 @@
                     <button class="retro-button" type="button" name="button">
                         <img src="assets/icons/iconmonstr-audio-13.svg" />
                     </button>
-
-
                 </div>
 
             </div>
@@ -480,17 +478,14 @@
     <audio id="dummy-player" src="sound_input.wav"></audio>
     <audio id="actual-player" src="sound_input.wav"></audio>
 </body>
-<script src="rb.js"></script>
-<script src="outputcards.js"></script>
-<script src="voicekit.js"></script>
-<script src="app.js"></script>
-<script src="dialogue.js"></script>
-<script src="voice-viz.js"></script>
-
-<script src="newviz.js"></script>
-
-
-<script src="sound-viz.js"></script>
+<script src="assets/js/rb.js"></script>
+<script src="assets/js/outputcards.js"></script>
+<script src="assets/js/voicekit.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/dialogue.js"></script>
+<script src="assets/js/voice-viz.js"></script>
+<script src="assets/js/newviz.js"></script>
+<script src="assets/js/sound-viz.js"></script>
 
 
 </html>
