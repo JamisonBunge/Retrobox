@@ -222,6 +222,22 @@ function getVoiceViz() {
   </div>`
 }
 
+function getLoadingAnim() {
+    return `
+    <div class="loadparent><div class="loadcontainer">
+        <div class="plank></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <h5 class="loadtext>Loading...</h5>
+    </div></div>`
+}
+
+
 function newVoiceViz() {
     return `
     <div id="voiceviz">

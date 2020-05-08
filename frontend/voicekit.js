@@ -24,19 +24,20 @@ function startVoice() {
                 }
                 console.log('does this happen once too?')
                 console.log(done)
+
                 r.innerHTML = finalTranscripts + '<span style="color: #999;">' + interimTranscripts + '</span>';
                 if (done == true) {
+                    console.log('WHY DOES THIS NEVER FUCKING HAPPEN')
+                    expressionMatching(finalTranscripts)
                     break
                 }
 
             }
-            console.log(finalTranscripts)
+            //console.log(finalTranscripts)
+            // console.log('fuck')
+
             //this is where we need to do the expression matching
-            if (finalTranscripts.includes("weather")) {
-                getCommand("weatherNow")
 
-
-            }
 
         };
 
@@ -48,4 +49,15 @@ function startVoice() {
     else {
         r.innerHTML = "Your browser does not support that.";
     }
+}
+
+function expressionMatching(finalTranscripts) {
+    output.innerHTML = getLoadingAnim()
+    if (finalTranscripts.includes("weather")) {
+        getCommand("weatherNow")
+        output.innerHTML = getLoadingAnim()
+
+
+    }
+
 }
