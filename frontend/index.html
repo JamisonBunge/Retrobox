@@ -19,6 +19,8 @@
         crossorigin="anonymous"></script>
 
     <link href="dialogue.css" rel="stylesheet">
+    <link href="newviz.css" rel="stylesheet">
+    <link href="assets/styles/loading.css" rel="stylesheet">
     <link rel="stylesheet" href="voice-viz.css">
 
     <title>RetroBox</title>
@@ -404,25 +406,28 @@
                 temp css grid to put the temp button on the same line
                 -->
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <h1 id="welcomeprompt">How can i help?</h1>
+                                    <div class="col-sm-12">
+                                        <h1 id="welcomeprompt">How can I help?</h1>
                                     </div>
-                                    <div class="col-sm-4">
+                                    <!-- <div class="col-sm-4">
                                         <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
                                             class="btn btn-dark ">Weather
                                             Now</button>
+                                    </div> -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h5 id="serverprompt">...</h5>
                                     </div>
                                 </div>
-
-                                <h2 id="serverprompt"></h2>
 
                                 <div id=output></div>
 
                                 <div id="tempoutput">
 
                                 </div>
-                                <button id="voice" onClick="closeDialogUI()" type="button"
-                                    class="btn btn-dark voicebutton exitbutton">Exit</button>
+                                <!-- <button id="voice" onClick="closeDialogUI()" type="button"
+                                    class="btn btn-dark voicebutton exitbutton">Exit</button> -->
                                 <!-- this button should always be on the screen -->
                             </div>
                         </div>
@@ -477,9 +482,15 @@
 </body>
 <script src="rb.js"></script>
 <script src="outputcards.js"></script>
+<script src="voicekit.js"></script>
 <script src="app.js"></script>
 <script src="dialogue.js"></script>
 <script src="voice-viz.js"></script>
+
+<script src="newviz.js"></script>
+
+
 <script src="sound-viz.js"></script>
+
 
 </html>
