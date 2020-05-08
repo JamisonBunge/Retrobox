@@ -44,8 +44,8 @@ class CircleVizCluster {
             let newScale = this.getCircleScale();
             newScale *= (1 + (Math.sin(2 * Math.PI * this.count / 60) + 1) / 15);
 
-            let offset = this.count % 3 - 1;
-            offset *= newScale / 1.5;
+            let offset = this.count % 5 - 2;
+            offset *= newScale / 4;
 
             for (let circle of this.circles) {
                 circle.doDraw(newScale, this.color, offset);
@@ -107,10 +107,11 @@ class CircleViz {
         this.containerEl = containerEl;
         this.stopped = true;
 
-        this.circle = document.createElement('div');
-        this.circle.classList.add('sound-button-circle');
-        this.containerEl.appendChild(this.circle);
+        // this.circle = document.createElement('div');
+        // this.circle.classList.add('sound-button-circle');
+        // this.containerEl.appendChild(this.circle);
 
+        this.circle = this.containerEl.getElementsByClassName('sound-button-circle')[0]
         this.image = this.containerEl.querySelector('img')
     }
 
@@ -161,23 +162,32 @@ class CircleViz {
     }
 }
 
-// function initialDrawing() {
-//     for (let container of document.getElementsByClassName("small-speaker") ) {
-//         smallWidth = container.offsetWidth;
-//         smallHeight = container.offsetHeight;
-//         console.log( smallWidth + ',' + smallHeight )
-//         // container.getElementsByClassName("sound-btn")[0].style.height = smallHeight
-//     }
+function initialDrawing() {
+    for (let container of document.getElementsByClassName("sound-viz-small") ) {
+        if (container.offsetWidth > container.offsetHeight) {
+            container.style.height = container.offsetWidth + "px";
+            container.style.width = container.offsetWidth + "px"
+        } else {
+            container.style.width = container.offsetHeight + "px";
+            container.style.height = container.offsetHeight + "px";
+        }
+        console.log( container.style.width + ',' + container.style.height )
+    }
 
-//     for (let container of document.getElementsByClassName("big-speaker") ) {
-//         bigWidth = container.offsetWidth;
-//         bigHeight = container.offsetHeight;
-//         console.log( bigWidth + ',' + bigHeight )
-//         // container.getElementsByClassName("sound-btn")[0].style.width = bigWidth
-//     }
-// }
+    for (let container of document.getElementsByClassName("sound-viz-big") ) {
+        if (container.offsetWidth > container.offsetHeight) {
+            container.style.height = container.offsetWidth + "px";
+            container.style.width = container.offsetWidth + "px"
+        } else {
+            container.style.width = container.offsetHeight + "px";
+            container.style.height = container.offsetHeight + "px";
+        }
+        console.log( container.style.width + ',' + container.style.height )
+        
+    }
+}
 
-// initialDrawing()
+initialDrawing()
 
 const circleVizContainers = document.getElementsByClassName("sound-viz-container")
 const circleVizCluster = new CircleVizCluster(circleVizContainers)
@@ -186,14 +196,19 @@ let animationStopped = true;
 document.getElementById("play-button").addEventListener('click', function () {
     if (animationStopped) {
         animationStopped = false;
-        document.getElementById("dummy-player").play()
         document.getElementById("actual-player").play()
+        document.getElementById("dummy-player").play()
         circleVizCluster.startAnimation()
     } else {
         animationStopped = true;
-        document.getElementById("dummy-player").pause()
         document.getElementById("actual-player").pause()
+        document.getElementById("dummy-player").pause()
         circleVizCluster.stopAnimation()
     }
 });
+
+document.getElementById("dummy-player").onended = function() {
+    animationStopped = true;
+    circleVizCluster.stopAnimation()
+}
 

@@ -93,13 +93,13 @@
             margin: auto;
         }
 
-        .small-speaker {
+        .speaker {
             position: relative;
             width: 100%;
             height: 100%;
         }
 
-        .small-speaker .small-speaker-main {
+        .speaker .small-speaker-main {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -108,45 +108,13 @@
             width: auto;
         }
 
-        .small-speaker .small-speaker-inner {
-            position: absolute;
-            height: 40px;
-            width: 40px;
-            z-index: 10;
-            -webkit-transform-origin: center center;
-            -ms-transform-origin: center center;
-            transform-origin: center center;
-            -webkit-transform: scale(1);
-            -ms-transform: scale(1);
-            transform: scale(1);
-        }
-
-        .big-speaker {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .big-speaker .big-speaker-main {
+        .speaker .big-speaker-main {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            height: 300px;
-            width: 300px;
-        }
-
-        .big-speaker .big-speaker-inner {
-            position: absolute;
-            height: 100px;
-            width: 100px;
-            z-index: 10;
-            -webkit-transform-origin: center center;
-            -ms-transform-origin: center center;
-            transform-origin: center center;
-            -webkit-transform: scale(1);
-            -ms-transform: scale(1);
-            transform: scale(1);
+            height: auto;
+            width: 100%;
         }
 
         .cassette-buttons {
@@ -253,10 +221,11 @@
     <div class="mycont">
         <div class="row">
             <div id="top-left-area" class="col-sm-2 top">
-                <div class="small-speaker">
+                <div class="speaker">
                     <img class="small-speaker-main" src="assets/smallspeaker.png" />
                     <div class="sound-viz-container sound-viz-small">
-                        <img class="small-speaker-inner" src="assets/inner speaker small.png" />
+                        <img class="speaker-inner" src="assets/inner speaker small.png" />
+                        <div class="sound-button-circle"></div>
                     </div>
                     <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
                 </div>
@@ -308,10 +277,11 @@
 
             </div>
             <div id="top-right-area" class="col-sm-2 top">
-                <div class="small-speaker">
+                <div class="speaker">
                     <img class="small-speaker-main"src="assets/smallspeaker.png" />
                     <div class="sound-viz-container sound-viz-small">
-                        <img class="small-speaker-inner" src="assets/inner speaker small.png" />
+                        <img class="speaker-inner" src="assets/inner speaker small.png" />
+                        <div class="sound-button-circle"></div>
                     </div>
                     <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
                 </div>
@@ -319,10 +289,11 @@
         </div>
         <div class="row">
             <div id="bot-left-area" class="col-sm-3 bottom">
-                <div class="big-speaker">
+                <div class="speaker">
                     <img class="big-speaker-main" src="assets/bigspeaker.png" />
                     <div class="sound-viz-container sound-viz-big">
-                        <img class="big-speaker-inner" src="assets/inner speaker big.png" />
+                        <img class="speaker-inner" src="assets/inner speaker big.png" />
+                        <div class="sound-button-circle"></div>
                     </div>
                     <!-- <img class="big-speaker-inner" src="assets/inner speaker big.png" /> -->
                 </div>
@@ -363,10 +334,11 @@
 
             </div>
             <div id="bot-right-area" class="col-sm-3 bottom" style="background: #A0FFCE;">
-                <div class="big-speaker">
+                <div class="speaker">
                     <img class="big-speaker-main" src="assets/bigspeaker.png" />
                     <div class="sound-viz-container sound-viz-big">
-                        <img class="big-speaker-inner" src="assets/inner speaker big.png" />
+                        <img class="speaker-inner" src="assets/inner speaker big.png" />
+                        <div class="sound-button-circle"></div>
                     </div>
                     <!-- <img class="big-speaker-inner" src="assets/inner speaker big.png" /> -->
                 </div>
