@@ -31,7 +31,6 @@
 }
 
 .sliderholder {
-
     height: 100%;
     width:100%;
     /* background: lavender; */
@@ -82,7 +81,7 @@ input[type="range"] {
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     box-shadow: 2px 2px 0px 0px black;
 
-    background-image: url('../assets/low.png');
+    background-image: url('../images/low.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -98,7 +97,7 @@ input[type="range"] {
     box-shadow: 2px 2px 0px 0px black;
 
     -webkit-appearance: none;
-    background: url('../assets/low.png') no-repeat center;
+    background: url('../images/low.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
@@ -129,7 +128,7 @@ input[type=range]::-moz-focus-outer {
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     box-shadow: 2px 2px 0px 0px black;
 
-    background-image: url('../assets/mid.png');
+    background-image: url('../images/mid.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -148,7 +147,7 @@ input[type=range]::-moz-focus-outer {
 
 
     -webkit-appearance: none;
-    background: url('../assets/mid.png') no-repeat center;
+    background: url('../images/mid.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
@@ -164,7 +163,7 @@ input[type=range]::-moz-focus-outer {
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     box-shadow: 2px 2px 0px 0px black;
 
-    background-image: url('../assets/high.png');
+    background-image: url('../images/high.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -180,7 +179,7 @@ input[type=range]::-moz-focus-outer {
     box-shadow: 2px 2px 0px 0px black;
 
     -webkit-appearance: none;
-    background: url('../assets/high.png') no-repeat center;
+    background: url('../images/high.png') no-repeat center;
     background-position: center;
     background-color: #FC6CA3;
     border: 2px solid black;
