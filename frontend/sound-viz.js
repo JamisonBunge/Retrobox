@@ -171,7 +171,7 @@ function initialDrawing() {
             container.style.width = container.offsetHeight + "px";
             container.style.height = container.offsetHeight + "px";
         }
-        console.log( container.style.width + ',' + container.style.height )
+        // console.log( container.style.width + ',' + container.style.height )
     }
 
     for (let container of document.getElementsByClassName("sound-viz-big") ) {
@@ -182,7 +182,7 @@ function initialDrawing() {
             container.style.width = container.offsetHeight + "px";
             container.style.height = container.offsetHeight + "px";
         }
-        console.log( container.style.width + ',' + container.style.height )
+        // console.log( container.style.width + ',' + container.style.height )
         
     }
 }
