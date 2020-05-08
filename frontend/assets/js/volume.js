@@ -1,4 +1,4 @@
-const volstep = 0.05;
+const volstep = 1/5;
 
 document.getElementById("volume-up").addEventListener('click', function () {
     actualAudio = document.getElementById("actual-player")
@@ -12,7 +12,7 @@ document.getElementById("volume-up").addEventListener('click', function () {
         dummyAudio.volume = Number((dummyAudio.volume + volstep).toFixed(2));
     }
 
-    console.log(actualAudio.volume)
+    // console.log(actualAudio.volume)
 });
 
 document.getElementById("volume-down").addEventListener('click', function () {
@@ -27,5 +27,5 @@ document.getElementById("volume-down").addEventListener('click', function () {
         dummyAudio.volume = Number((dummyAudio.volume - volstep).toFixed(2));
     }
 
-    console.log(actualAudio.volume)
+    // console.log(actualAudio.volume)
 });
