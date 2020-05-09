@@ -27,7 +27,7 @@ function startVoice() {
 
                 r.innerHTML = finalTranscripts + '<span style="color: #999;">' + interimTranscripts + '</span>';
                 if (done == true) {
-                    console.log('WHY DOES THIS NEVER FUCKING HAPPEN')
+
                     expressionMatching(finalTranscripts)
                     break
                 }
@@ -52,12 +52,53 @@ function startVoice() {
 }
 
 function expressionMatching(finalTranscripts) {
-    output.innerHTML = getLoadingAnim()
+
     if (finalTranscripts.includes("weather")) {
-        getCommand("weatherNow")
         output.innerHTML = getLoadingAnim()
+        getCommand("weatherNow")
+
+    } else if (finalTranscripts.includes("play")) {
+
+        if (finalTranscripts.includes("first")) { //change to what ever song title
+            document.getElementById("welcomeprompt").innerHTML = "Song 1 Name"
+            document.getElementById("serverprompt").innerHTML = "Artist 1  Name"
+            document.getElementById("actual-player").setAttribute('src', 'assets/music/getlucky.wav');
+            document.getElementById("dummy-player").setAttribute('src', 'assets/music/getlucky.wav');
 
 
+        } else {
+            //this is for song two
+            document.getElementById("welcomeprompt").innerHTML = "Song 2 Name"
+            document.getElementById("serverprompt").innerHTML = "Artist 2  Name"
+            document.getElementById("actual-player").setAttribute('src', 'assets/music/sound_input.wav');
+            document.getElementById("dummy-player").setAttribute('src', 'assets/music/sound_input.wav');
+
+
+        }
+
+        // const circleVizCluster = new CircleVizCluster(circleVizContainers)
+
+        if (animationStopped) {
+
+
+            animationStopped = false;
+            document.getElementById("actual-player").play()
+            document.getElementById("dummy-player").play()
+            circleVizCluster.startAnimation()
+        } else {
+            console.log('what happened')
+            animationStopped = true;
+            document.getElementById("actual-player").pause()
+            document.getElementById("dummy-player").pause()
+            circleVizCluster.stopAnimation()
+        }
+
+        //getCommand("weatherNow")
+
+        console.log("hey")
+        // document.getElementById('popup').classList.add("dark")
+        // let div = document.getElementById("popup");
+        // div.pseudoStyle("before", "background", "purple");
     }
 
 }

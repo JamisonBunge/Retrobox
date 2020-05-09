@@ -180,8 +180,13 @@ function dialogprogression() {
         let parsedCmd = 'weatherNow'
         open = true
     } else {
+        document.getElementById("welcomeprompt").innerHTML = "How may I help?"
         output.innerHTML = ""
         open = false
+        animationStopped = true;
+        document.getElementById("actual-player").pause()
+        document.getElementById("dummy-player").pause()
+        circleVizCluster.stopAnimation()
     }
 
 
