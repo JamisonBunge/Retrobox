@@ -57,13 +57,25 @@ function expressionMatching(finalTranscripts) {
         output.innerHTML = getLoadingAnim()
         getCommand("weatherNow")
 
-    } else if (finalTranscripts.includes("music")) {
+    } else if (finalTranscripts.includes("play")) {
+
+        if (finalTranscripts.includes("first")) { //change to what ever song title
+            document.getElementById("welcomeprompt").innerHTML = "Song 1 Name"
+            document.getElementById("serverprompt").innerHTML = "Artist 1  Name"
+            // document.getElementById("actual-player").setAttribute('src', '../music/getlucky.wav');
+
+        } else {
+            //this is for song two
+            document.getElementById("welcomeprompt").innerHTML = "Song 2 Name"
+            document.getElementById("serverprompt").innerHTML = "Artist 2  Name"
+
+        }
 
         // const circleVizCluster = new CircleVizCluster(circleVizContainers)
 
         if (animationStopped) {
-            document.getElementById("welcomeprompt").innerHTML = "Song Name"
-            document.getElementById("serverprompt").innerHTML = "Artist Name"
+
+
             animationStopped = false;
             document.getElementById("actual-player").play()
             document.getElementById("dummy-player").play()
