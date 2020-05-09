@@ -62,12 +62,17 @@ function expressionMatching(finalTranscripts) {
         if (finalTranscripts.includes("first")) { //change to what ever song title
             document.getElementById("welcomeprompt").innerHTML = "Song 1 Name"
             document.getElementById("serverprompt").innerHTML = "Artist 1  Name"
-            // document.getElementById("actual-player").setAttribute('src', '../music/getlucky.wav');
+            document.getElementById("actual-player").setAttribute('src', 'assets/music/getlucky.wav');
+            document.getElementById("dummy-player").setAttribute('src', 'assets/music/getlucky.wav');
+
 
         } else {
             //this is for song two
             document.getElementById("welcomeprompt").innerHTML = "Song 2 Name"
             document.getElementById("serverprompt").innerHTML = "Artist 2  Name"
+            document.getElementById("actual-player").setAttribute('src', 'assets/music/sound_input.wav');
+            document.getElementById("dummy-player").setAttribute('src', 'assets/music/sound_input.wav');
+
 
         }
 
