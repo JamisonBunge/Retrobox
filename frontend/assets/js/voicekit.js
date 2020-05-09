@@ -27,7 +27,7 @@ function startVoice() {
 
                 r.innerHTML = finalTranscripts + '<span style="color: #999;">' + interimTranscripts + '</span>';
                 if (done == true) {
-                    console.log('WHY DOES THIS NEVER FUCKING HAPPEN')
+
                     expressionMatching(finalTranscripts)
                     break
                 }
@@ -52,12 +52,36 @@ function startVoice() {
 }
 
 function expressionMatching(finalTranscripts) {
-    output.innerHTML = getLoadingAnim()
+
     if (finalTranscripts.includes("weather")) {
-        getCommand("weatherNow")
         output.innerHTML = getLoadingAnim()
+        getCommand("weatherNow")
 
+    } else if (finalTranscripts.includes("music")) {
 
+        // const circleVizCluster = new CircleVizCluster(circleVizContainers)
+
+        if (animationStopped) {
+            document.getElementById("welcomeprompt").innerHTML = "Song Name"
+            document.getElementById("serverprompt").innerHTML = "Artist Name"
+            animationStopped = false;
+            document.getElementById("actual-player").play()
+            document.getElementById("dummy-player").play()
+            circleVizCluster.startAnimation()
+        } else {
+            console.log('what happened')
+            animationStopped = true;
+            document.getElementById("actual-player").pause()
+            document.getElementById("dummy-player").pause()
+            circleVizCluster.stopAnimation()
+        }
+
+        //getCommand("weatherNow")
+
+        console.log("hey")
+        // document.getElementById('popup').classList.add("dark")
+        // let div = document.getElementById("popup");
+        // div.pseudoStyle("before", "background", "purple");
     }
 
 }

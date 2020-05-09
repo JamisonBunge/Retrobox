@@ -71,6 +71,12 @@ body {
     transform: translateY(0px);
     transition: all 0.5s;
   }
+
+  .dark {
+    transition: all 600ms;
+    background:green !important;
+  }
+
   .wrap.active:before {
     height: 2000px;
     width: 2000px;
