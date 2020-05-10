@@ -170,6 +170,15 @@ function dialogprogression() {
     //for now it will be hardcoded for weathernow
     if (open == false) {
         console.log('inside')
+
+        // stop music on new voice command
+        // if (!animationStopped) {
+        //     animationStopped = true;
+        //     document.getElementById("actual-player").pause()
+        //     document.getElementById("dummy-player").pause()
+        //     circleVizCluster.stopAnimation()
+        // }
+
         output.innerHTML = getVoiceViz()
         output.innerHTML = newVoiceViz()
         // forViz()
@@ -183,6 +192,7 @@ function dialogprogression() {
         document.getElementById("welcomeprompt").innerHTML = "How may I help?"
         output.innerHTML = ""
         open = false
+
         animationStopped = true;
         document.getElementById("actual-player").pause()
         document.getElementById("dummy-player").pause()
