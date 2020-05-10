@@ -186,7 +186,7 @@ function dialogprogression() {
         let parsedCmd = 'weatherNow'
         open = true
     } else {
-        document.getElementById("welcomeprompt").innerHTML = "How may I help?"
+        document.getElementById("welcomeprompt").innerHTML = "How can I help?"
         output.innerHTML = ""
         open = false
 

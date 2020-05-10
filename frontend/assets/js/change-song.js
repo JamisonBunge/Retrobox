@@ -8,7 +8,7 @@
 // })
 
 function changeSong() {
-    console.log('changing song')
+    // console.log('changing song')
     source = document.getElementById("dummy-player").src
 
     if (source.includes('billie-jean')) {
@@ -26,12 +26,11 @@ function changeSong() {
     players = document.querySelectorAll('audio')
 
     // check if song info is displayed
-    if (!players[0].paused && document.getElementById("welcomeprompt")) {
-        document.getElementById("welcomeprompt").innerHTML = song[0]
-    }
-
-    if (!players[0].paused && document.getElementById("serverprompt")) {
-        document.getElementById("serverprompt").innerHTML = song[1]
+    if (document.getElementById("welcomeprompt")) {
+        if (document.getElementById("welcomeprompt").innerHTML != "How can I help?") {
+            document.getElementById("welcomeprompt").innerHTML = song[0]
+            document.getElementById("serverprompt").innerHTML = song[1]
+        }
     }
 
     switchSource(players, newsource)
