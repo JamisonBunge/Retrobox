@@ -13,7 +13,8 @@ const schema = gql`
 type Query {
 	test: String,
     weatherNow(lat: Float!,long: Float!): WeatherRecord,
-    weatherForecast(lat: Float!,long: Float!): [WeatherRecord]
+    weatherForecast(lat: Float!,long: Float!): [WeatherRecord],
+    getWeatherCard(lat: Float!,long: Float!): WeatherCard
 },
 type WeatherRecord {
     response: String,
@@ -23,6 +24,23 @@ type WeatherRecord {
     main: String,
     description: String,
     time: String
+},
+type WeatherCard {
+    response: String,
+    date: String,
+    location: String,
+    main: String,
+    background: String,
+    icon: String,
+
+    today_temp: String,
+    today_high_low: String,
+    forecast: [forecast]
+
+},
+type forecast {
+    day: String,
+    temp: String
 }
 `;
 
@@ -31,6 +49,8 @@ const resolvers = {
         test: () => { return "MuddBot 3.0" },
         weatherNow: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useCurrentWeatherAPI(lat, long),
         weatherForecast: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.useForecastAPI(lat, long),
+        getWeatherCard: async (parent, { lat, long }, { dataSources }) => dataSources.Weather.createCard(lat, long),
+
     },
     // ,
 };

@@ -71,8 +71,8 @@ async function getCommand(keyword) {
     }
 
     console.log(queryby)
-    fetch('https://secure-lake-82343.herokuapp.com/graphql', {
-        //fetch('http://localhost:5000/graphql', {
+    // fetch('https://secure-lake-82343.herokuapp.com/graphql', {
+    fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
