@@ -2,6 +2,18 @@ function weatherNowCard(response, keyword) {
     console.log(response)
 
     let greaterDetails = formatResponse(response)
+    let t = new Date()
+    let hours = t.getHours();
+    let m = "AM"
+    if (hours > 11) {
+        m = "PM"
+        hours -= 12
+    }
+    let mins = t.getMinutes();
+    if (mins < 10) {
+        mins = `0${mins}`
+    }
+    let time = `${hours}:${mins} ${m}`
 
     return `
 
@@ -9,40 +21,40 @@ function weatherNowCard(response, keyword) {
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-4">
-                    <img class="wicon" src="assets/icons/iconmonstr-weather-14.svg" />
+                    <img class="wicon" src="${response.icon}" />
 
                     <h5>${response.main}</h5>
                 </div>
 
                 <div class="col-sm-4">
-                    <h4 class="header">Fredonia, NY</h4>
-                    <h6 class="header">May 9th, 2020</h6>
-                    <h6 class="">8:54 PM</h6>
+                    <h4 class="header">${response.location}</h4>
+                    <h6 class="header">${response.date}</h6>
+                    <h6 class="">${time}</h6>
                 </div>
                 <div class="col-sm-4 temp">
                     <div class="circle">
-                        <h2 class="main-temp">30°</h2>
-                        <h5 class="sub-temp">25°/37°</h5>
+                        <h2 class="main-temp">${response.today_temp}</h2>
+                        <h5 class="sub-temp">${response.today_high_low}</h5>
                     </div>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-3 forecast forecastall">
-                    <h2 class="fore-temp">MON</h2>
-                    <h5 class="fore-lowhi">25°/37°</h5>
+                    <h2 class="fore-temp">${response.forecast[0].day}</h2>
+                    <h5 class="fore-lowhi">${response.forecast[0].temp}</h5>
                 </div>
                 <div class="col-sm-3 forecast forecastall">
-                    <h2 class="fore-temp">TUE</h2>
-                    <h5 class="fore-lowhi">25°/37°</h5>
+                <h2 class="fore-temp">${response.forecast[1].day}</h2>
+                <h5 class="fore-lowhi">${response.forecast[1].temp}</h5>
                 </div>
                 <div class="col-sm-3 forecast forecastall">
-                    <h2 class="fore-temp">WED</h2>
-                    <h5 class="fore-lowhi">25°/37°</h5>
+                <h2 class="fore-temp">${response.forecast[2].day}</h2>
+                <h5 class="fore-lowhi">${response.forecast[2].temp}</h5>
                 </div>
                 <div class="col-sm-3 forecastall ">
-                    <h2 class="fore-temp">THUR</h2>
-                    <h5 class="fore-lowhi">25°/37°</h5>
+                <h2 class="fore-temp">${response.forecast[3].day}</h2>
+                <h5 class="fore-lowhi">${response.forecast[3].temp}</h5>
                 </div>
             </div>
         </div>
