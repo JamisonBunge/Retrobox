@@ -90,12 +90,9 @@ async function getCommand(keyword) {
             //populate card with info
             //func(response, keyword)
             console.log(keyword)
-            console.log('ddddd')
             output.innerHTML = createOutputCardHTML(response, keyword)
-            document.getElementById('serverprompt').innerHTML = `${response.response} `
-
-
-
+            document.getElementById('serverprompt').innerHTML = `${response.response}`
+            speak(response.response)
         })
 }
 
@@ -122,9 +119,8 @@ function formatResponseForecast(response, offset) {
 }
 
 function lol() { console.log("lol") }
-function handleWeatherNow(response, keyword) {
-    speak(response.response)
 
+function handleWeatherNow(response, keyword) {
     let greaterDetails = formatResponse(response)
     document.getElementById('serverprompt').innerHTML = `${response.response} `
     document.getElementById('card-header').innerHTML = `${keyword} endpoint`
@@ -170,6 +166,7 @@ function dialogprogression() {
     //for now it will be hardcoded for weathernow
     if (open == false) {
         console.log('inside')
+        // speak("How can I help?")
 
         // stop music on new voice command
         // if (!animationStopped) {
