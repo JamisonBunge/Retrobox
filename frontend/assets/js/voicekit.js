@@ -60,20 +60,35 @@ function expressionMatching(finalTranscripts) {
     } else if (finalTranscripts.includes("play")) {
 
         if (finalTranscripts.includes("first")) { //change to what ever song title
-            document.getElementById("welcomeprompt").innerHTML = "Song 1 Name"
-            document.getElementById("serverprompt").innerHTML = "Artist 1  Name"
-            document.getElementById("actual-player").setAttribute('src', 'assets/music/getlucky.wav');
-            document.getElementById("dummy-player").setAttribute('src', 'assets/music/getlucky.wav');
+            document.getElementById("welcomeprompt").innerHTML = "Billie Jean"
+            document.getElementById("serverprompt").innerHTML = "Michael Jackson"
 
+            source = document.getElementById("dummy-player").src
+
+            if (/.*-processed.wav/.test(source)) {
+                newsource = 'assets/music/billie-jean-clip-processed.wav'
+            } else {
+                newsource = 'assets/music/billie-jean-clip.wav'
+            }
+
+            document.getElementById("actual-player").src = newsource;
+            document.getElementById("dummy-player").src = newsource;
 
         } else {
             //this is for song two
-            document.getElementById("welcomeprompt").innerHTML = "Song 2 Name"
-            document.getElementById("serverprompt").innerHTML = "Artist 2  Name"
-            document.getElementById("actual-player").setAttribute('src', 'assets/music/sound_input.wav');
-            document.getElementById("dummy-player").setAttribute('src', 'assets/music/sound_input.wav');
+            document.getElementById("welcomeprompt").innerHTML = "Take On Me"
+            document.getElementById("serverprompt").innerHTML = "a-ha"
 
+            source = document.getElementById("dummy-player").src
 
+            if (/.*-processed.wav/.test(source)) {
+                newsource = 'assets/music/take-on-me-clip-processed.wav'
+            } else {
+                newsource = 'assets/music/take-on-me-clip.wav'
+            }
+
+            document.getElementById("actual-player").src = newsource;
+            document.getElementById("dummy-player").src = newsource;
         }
 
         // const circleVizCluster = new CircleVizCluster(circleVizContainers)
