@@ -103,7 +103,7 @@ function expressionMatching(finalTranscripts) {
 
         //getCommand("weatherNow")
 
-        console.log("hey")
+        // console.log("hey")
         // document.getElementById('popup').classList.add("dark")
         // let div = document.getElementById("popup");
         // div.pseudoStyle("before", "background", "purple");

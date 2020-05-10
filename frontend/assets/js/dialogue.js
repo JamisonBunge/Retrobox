@@ -3,7 +3,11 @@ $('.voicebutton').on('click', function () {
 
   if ($('.wrap').hasClass('active')) {
     // console.log('lol')
-    startVoice()
+    // speak('How can I help?')
+
+    // wait so it doesn't listen to itself
+    setTimeout(startVoice, 1200)
+    // startVoice()
   }
   return false;
 });

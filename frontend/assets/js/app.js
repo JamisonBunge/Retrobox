@@ -179,7 +179,9 @@ function dialogprogression() {
         output.innerHTML = getVoiceViz()
         output.innerHTML = newVoiceViz()
         // forViz()
-        loadNewViz()
+        speak('How can I help?')
+        setTimeout(loadNewViz, 1200)
+        // loadNewViz()
         //startViz()
         document.getElementById('serverprompt').innerHTML = ""
 

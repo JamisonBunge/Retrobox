@@ -13,10 +13,7 @@ function speak(inputText) {
             console.error('speech synthesis error');
         }
 
-        voices = synth.getVoices()
-        console.log(voices.length)
-
-        utterThis.voice = voices[3];
+        utterThis.voice = synth.getVoices()[3];
         utterThis.pitch = 1;
         utterThis.rate = 1;
 
