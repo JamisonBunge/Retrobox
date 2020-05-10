@@ -13,7 +13,16 @@ function speak(inputText) {
             console.error('speech synthesis error');
         }
 
-        utterThis.voice = synth.getVoices()[3];
+        voices = synth.getVoices();
+
+        for(i = 0; i < voices.length ; i++) {
+            if (voices[i].name == "Google US English" && voices[i].lang == "en-US") {
+                utterThis.voice = voices[i];
+                break;
+            }
+          }
+
+        // utterThis.voice = synth.getVoices()[3];
         utterThis.pitch = 1;
         utterThis.rate = 1;
 
