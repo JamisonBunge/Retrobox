@@ -90,12 +90,9 @@ async function getCommand(keyword) {
             //populate card with info
             //func(response, keyword)
             console.log(keyword)
-            console.log('ddddd')
             output.innerHTML = createOutputCardHTML(response, keyword)
-            document.getElementById('serverprompt').innerHTML = `${response.response} `
-
-
-
+            document.getElementById('serverprompt').innerHTML = `${response.response}`
+            speak(response.response)
         })
 }
 
@@ -122,8 +119,8 @@ function formatResponseForecast(response, offset) {
 }
 
 function lol() { console.log("lol") }
-function handleWeatherNow(response, keyword) {
 
+function handleWeatherNow(response, keyword) {
     let greaterDetails = formatResponse(response)
     document.getElementById('serverprompt').innerHTML = `${response.response} `
     document.getElementById('card-header').innerHTML = `${keyword} endpoint`
@@ -138,7 +135,6 @@ function handleWeatherNow(response, keyword) {
     }
 
     displayTempOutputCard()
-
 }
 
 
@@ -170,6 +166,7 @@ function dialogprogression() {
     //for now it will be hardcoded for weathernow
     if (open == false) {
         console.log('inside')
+        // speak("How can I help?")
 
         // stop music on new voice command
         // if (!animationStopped) {
@@ -182,14 +179,16 @@ function dialogprogression() {
         output.innerHTML = getVoiceViz()
         output.innerHTML = newVoiceViz()
         // forViz()
-        loadNewViz()
+        speak('How can I help?')
+        setTimeout(loadNewViz, 1200)
+        // loadNewViz()
         //startViz()
         document.getElementById('serverprompt').innerHTML = ""
 
         let parsedCmd = 'weatherNow'
         open = true
     } else {
-        document.getElementById("welcomeprompt").innerHTML = "How may I help?"
+        document.getElementById("welcomeprompt").innerHTML = "How can I help?"
         output.innerHTML = ""
         open = false
 

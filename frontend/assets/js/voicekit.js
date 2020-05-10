@@ -27,8 +27,8 @@ function startVoice() {
                 else {
                     interimTranscripts += transcript;
                 }
-                console.log('does this happen once too?')
-                console.log(done)
+                // console.log('does this happen once too?')
+                // console.log(done)
 
                 r.innerHTML = finalTranscripts + '<span style="color: #999;">' + interimTranscripts + '</span>';
                 if (done == true) {
@@ -103,7 +103,7 @@ function expressionMatching(finalTranscripts) {
 
         //getCommand("weatherNow")
 
-        console.log("hey")
+        // console.log("hey")
         // document.getElementById('popup').classList.add("dark")
         // let div = document.getElementById("popup");
         // div.pseudoStyle("before", "background", "purple");
