@@ -123,6 +123,7 @@ function formatResponseForecast(response, offset) {
 
 function lol() { console.log("lol") }
 function handleWeatherNow(response, keyword) {
+    speak(response.response)
 
     let greaterDetails = formatResponse(response)
     document.getElementById('serverprompt').innerHTML = `${response.response} `
@@ -138,7 +139,6 @@ function handleWeatherNow(response, keyword) {
     }
 
     displayTempOutputCard()
-
 }
 
 

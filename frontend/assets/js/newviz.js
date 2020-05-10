@@ -39,12 +39,16 @@ let loadNewViz = () => {
                 var adjustedLength;
                 for (var i = 0; i < 255; i++) {
                     adjustedLength = Math.floor(frequencyArray[i]) - (Math.floor(frequencyArray[i]) % 5);
-                    paths[i].setAttribute('d', 'M ' + (i) + ',255 l 0,-' + adjustedLength);
+                    if (typeof paths[i] != 'undefined') {
+                        paths[i].setAttribute('d', 'M ' + (i) + ',255 l 0,-' + adjustedLength);
+                    }
                 }
             }
             else {
                 for (var i = 0; i < 255; i++) {
-                    paths[i].setAttribute('d', 'M ' + (i) + ',255 l 0,-' + 0);
+                    if (typeof paths[i] != 'undefined') {
+                        paths[i].setAttribute('d', 'M ' + (i) + ',255 l 0,-' + 0);
+                    }
                 }
             }
         }
