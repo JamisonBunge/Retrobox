@@ -1,3 +1,8 @@
+const songList = [
+    ['Billie Jean', 'Michael Jackson', 'assets/music/billie-jean-clip.wav'],
+    ['Take On Me', 'a-ha', 'assets/music/take-on-me-clip.wav'],
+];
+
 function startVoice() {
     var r = document.getElementById("serverprompt");
     if ("webkitSpeechRecognition" in window) {
@@ -27,21 +32,15 @@ function startVoice() {
 
                 r.innerHTML = finalTranscripts + '<span style="color: #999;">' + interimTranscripts + '</span>';
                 if (done == true) {
-
                     expressionMatching(finalTranscripts)
                     break
                 }
-
             }
             //console.log(finalTranscripts)
             // console.log('fuck')
 
             //this is where we need to do the expression matching
-
-
         };
-
-
 
         speechRecognizer.onerror = function (event) {
         };
@@ -52,39 +51,48 @@ function startVoice() {
 }
 
 function expressionMatching(finalTranscripts) {
+    // lowoer case makes for easier matching
+    finalTranscripts = finalTranscripts.toLowerCase();
 
     if (finalTranscripts.includes("weather")) {
         output.innerHTML = getLoadingAnim()
         getCommand("weatherNow")
 
     } else if (finalTranscripts.includes("play")) {
-
-        if (finalTranscripts.includes("first")) { //change to what ever song title
-            document.getElementById("welcomeprompt").innerHTML = "Song 1 Name"
-            document.getElementById("serverprompt").innerHTML = "Artist 1  Name"
-            document.getElementById("actual-player").setAttribute('src', 'assets/music/getlucky.wav');
-            document.getElementById("dummy-player").setAttribute('src', 'assets/music/getlucky.wav');
-
-
+        // check for song; not very sophisticated
+        if (finalTranscripts.includes("billie jean") || finalTranscripts.includes("michael jackson")) {
+            song = songList[0]
+        } else if (finalTranscripts.includes("take on me") || finalTranscripts.includes("take me on")) {
+            // I mix up this song name up a lot
+            song = songList[1]
         } else {
-            //this is for song two
-            document.getElementById("welcomeprompt").innerHTML = "Song 2 Name"
-            document.getElementById("serverprompt").innerHTML = "Artist 2  Name"
-            document.getElementById("actual-player").setAttribute('src', 'assets/music/sound_input.wav');
-            document.getElementById("dummy-player").setAttribute('src', 'assets/music/sound_input.wav');
-
-
+            // no song specified, pick a random one
+            song = songList[Math.floor(Math.random()*2)]
         }
+
+        document.getElementById("welcomeprompt").innerHTML = song[0]
+        document.getElementById("serverprompt").innerHTML = song[1]
+
+        source = document.getElementById("dummy-player").src
+
+        // check to play processed version or not
+        if (/.*-processed.wav/.test(source)) {
+            newsource = song[2].substring(0, song[2].length - 4) + '-processed.wav'
+        } else {
+            newsource = song[2]
+        }
+
+        document.getElementById("actual-player").src = newsource;
+        document.getElementById("dummy-player").src = newsource;
 
         // const circleVizCluster = new CircleVizCluster(circleVizContainers)
 
         if (animationStopped) {
-
-
             animationStopped = false;
             document.getElementById("actual-player").play()
             document.getElementById("dummy-player").play()
             circleVizCluster.startAnimation()
+
         } else {
             console.log('what happened')
             animationStopped = true;
