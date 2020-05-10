@@ -46,6 +46,20 @@ let weatherForecast = () => `weatherForecast(lat: ${latitude}, long:${longitude}
   }`
     ;
 
+let getWeatherCard = () => `getWeatherCard(lat: ${latitude}, long:${longitude}) {
+    response
+    main
+    location
+    background
+    icon
+    today_temp
+    date
+    today_high_low
+    forecast {
+        day temp
+    }
+}`
+
 
 
 async function getCommand(keyword) {
@@ -59,6 +73,12 @@ async function getCommand(keyword) {
             queryby = weatherNow()
             func = handleWeatherNow
             createCard = weatherNowCard
+
+            break
+        case "getWeatherCard":
+            queryby = getWeatherCard()
+            func = handleWeatherCard
+
 
             break
         case "weatherForecast":
@@ -122,6 +142,11 @@ function formatResponseForecast(response, offset) {
 }
 
 function lol() { console.log("lol") }
+
+function handleWeatherCard(response, keyword) {
+    document.getElementById('serverprompt').innerHTML = `${response.response} cheers`
+}
+
 function handleWeatherNow(response, keyword) {
 
     let greaterDetails = formatResponse(response)
