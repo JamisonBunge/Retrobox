@@ -1,30 +1,25 @@
 var synth = window.speechSynthesis;
 
 function speak(inputText) {
-    console.log('inside speak')
-
     if (synth.speaking) {
-        console.error('speechSynthesis.speaking');
+        console.error('already speaking');
         return;
     }
 
     if (inputText !== '') {
         var utterThis = new SpeechSynthesisUtterance(inputText);
-        utterThis.onend = function () {
-            console.log('SpeechSynthesisUtterance.onend');
+        
+        utterThis.onerror = function () {
+            console.error('speech synthesis error');
         }
+
+        voices = synth.getVoices()
+        console.log(voices.length)
+
+        utterThis.voice = voices[3];
+        utterThis.pitch = 1;
+        utterThis.rate = 1;
+
+        synth.speak(utterThis);
     }
-
-    utterThis.onerror = function () {
-        console.error('SpeechSynthesisUtterance.onerror');
-    }
-
-    voices = synth.getVoices()
-    console.log(voices.length)
-
-    utterThis.voice = voices[3];
-    utterThis.pitch = 1;
-    utterThis.rate = 1;
-
-    synth.speak(utterThis);
 }
