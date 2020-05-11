@@ -139,7 +139,7 @@ function formatResponseForecast(response, offset) {
 }
 
 function lol() { console.log("lol") }
- 
+
 
 function handleWeatherCard(response, keyword) {
     document.getElementById('serverprompt').innerHTML = `${response.response} cheers`
@@ -148,13 +148,14 @@ function handleWeatherCard(response, keyword) {
 function handleWeatherNow(response, keyword) {
 
 
-function handleWeatherNow(response, keyword) {
-    let greaterDetails = formatResponse(response)
-    document.getElementById('serverprompt').innerHTML = `${response.response} `
-    document.getElementById('card-header').innerHTML = `${keyword} endpoint`
-    document.getElementById('card-title').innerHTML = `${response.response} `
-    document.getElementById('card-subtitle').innerHTML = new Date().formatMMDDYYYY()
-    document.getElementById('card-text').innerHTML = greaterDetails
+    function handleWeatherNow(response, keyword) {
+        let greaterDetails = formatResponse(response)
+        document.getElementById('serverprompt').innerHTML = `${response.response} `
+        document.getElementById('card-header').innerHTML = `${keyword} endpoint`
+        document.getElementById('card-title').innerHTML = `${response.response} `
+        document.getElementById('card-subtitle').innerHTML = new Date().formatMMDDYYYY()
+        document.getElementById('card-text').innerHTML = greaterDetails
+    }
 
 
     function displayTempOutputCard() {
