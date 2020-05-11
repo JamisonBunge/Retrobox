@@ -47,7 +47,7 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 
 ### Codepens
 
-- [Loading Animation](-https://codepen.io/patrikhjelm/pen/hItqn)
+- [Loading Animation](https://codepen.io/patrikhjelm/pen/hItqn)
 - [Pop up animation boilerplate](https://codepen.io/jeffmccarthyesq/pen/LEEKLZ)
 - [Clock](https://codepen.io/Gerwinnz/pen/vokci)
 - [Music Visualizer boilerplate](https://github.com/apm1467/html5-mic-visualizer)
