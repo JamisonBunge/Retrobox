@@ -1,4 +1,4 @@
-![RETROBOX](frontend/assets/images/Retrobox.png)
+![RETROBOX](frontend/assets/images/Retrobox@2x.png)
 
 # Overview
 
