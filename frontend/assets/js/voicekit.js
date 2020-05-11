@@ -56,7 +56,7 @@ function expressionMatching(finalTranscripts) {
 
     if (finalTranscripts.includes("weather")) {
         output.innerHTML = getLoadingAnim()
-        getCommand("weatherNow")
+        getCommand("getWeatherCard")
 
     } else if (finalTranscripts.includes("play")) {
         // check for song; not very sophisticated

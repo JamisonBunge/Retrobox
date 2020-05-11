@@ -46,6 +46,20 @@ let weatherForecast = () => `weatherForecast(lat: ${latitude}, long:${longitude}
   }`
     ;
 
+let getWeatherCard = () => `getWeatherCard(lat: ${latitude}, long:${longitude}) {
+    response
+    main
+    location
+    background
+    icon
+    today_temp
+    date
+    today_high_low
+    forecast {
+        day temp
+    }
+}`
+
 
 
 async function getCommand(keyword) {
@@ -61,6 +75,12 @@ async function getCommand(keyword) {
             createCard = weatherNowCard
 
             break
+        case "getWeatherCard":
+            queryby = getWeatherCard()
+            func = handleWeatherCard
+
+
+            break
         case "weatherForecast":
             queryby = weatherForecast()
             func = handleWeatherForecast
@@ -71,8 +91,8 @@ async function getCommand(keyword) {
     }
 
     console.log(queryby)
-    fetch('https://secure-lake-82343.herokuapp.com/graphql', {
-        //fetch('http://localhost:5000/graphql', {
+    fetch('https://warm-coast-48051.herokuapp.com/graphql', {
+        // fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -119,6 +139,14 @@ function formatResponseForecast(response, offset) {
 }
 
 function lol() { console.log("lol") }
+ 
+
+function handleWeatherCard(response, keyword) {
+    document.getElementById('serverprompt').innerHTML = `${response.response} cheers`
+}
+
+function handleWeatherNow(response, keyword) {
+
 
 function handleWeatherNow(response, keyword) {
     let greaterDetails = formatResponse(response)

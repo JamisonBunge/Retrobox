@@ -1,0 +1,59 @@
+.move {
+
+    /* background: #A0FFCE; */
+    background: rgb(159, 168, 218);
+    /* margin-right: auto;
+    margin-left: auto; */
+    border-radius: 15px;
+    border: 3px solid black;
+    z-index: 2;
+    width: 100%;
+
+}
+
+.wicon {
+    width: 80px
+}
+
+.header {
+    font-weight: bold;
+}
+
+.temp {
+    text-align: center;
+}
+
+.main-temp {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    /* background: #FC6CA3; */
+    border-radius: 12px;
+
+}
+
+.forecastall {
+    width: 100%;
+    text-align: center;
+
+}
+
+.forecast {
+    border-right: 3px solid black;
+}
+
+.fore-temp {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fore-lowhi {}
+
+hr {
+    border: 2px solid black;
+
+}

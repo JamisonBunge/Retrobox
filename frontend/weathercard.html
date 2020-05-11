@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm"
+        crossorigin="anonymous"></script>
+    <title>Weather Card</title>
+</head>
+
+<style>
+    html,
+    body {
+        /* background: gray; */
+        background: #f3f3f3;
+    }
+
+    .move {
+        margin-top: 300px;
+        /* background: #A0FFCE; */
+        background: rgb(159, 168, 218);
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 15px;
+        border: 3px solid black;
+        z-index: 2;
+
+    }
+
+    .wicon {
+        width: 100px
+    }
+
+    .header {
+        font-weight: bold;
+    }
+
+    .temp {
+        text-align: center;
+    }
+
+    .main-temp {
+        font-size: 50px;
+        font-weight: bold;
+    }
+
+    .circle {
+        width: 100%;
+        height: 100%;
+        /* background: #FC6CA3; */
+        border-radius: 12px;
+
+    }
+
+    .forecastall {
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .forecast {
+        border-right: 3px solid black;
+    }
+
+    .fore-temp {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .fore-lowhi {}
+
+    hr {
+        border: 2px solid black;
+
+    }
+</style>
+
+<body>
+
+
+    <div class="card move" style="width: 800px;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="wicon" src="assets/icons/iconmonstr-weather-14.svg" />
+
+                </div>
+                <div class="col-sm-4">
+                    <h4 class="header">Fredonia, NY</h4>
+                    <h6 class="header">May 9th, 2020</h6>
+                    <h6 class="">8:54 PM</h6>
+                </div>
+                <div class="col-sm-4 temp">
+                    <div class="circle">
+                        <h2 class="main-temp">30°</h2>
+                        <h5 class="sub-temp">25°/37°</h5>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3 forecast forecastall">
+                    <h2 class="fore-temp">MON</h2>
+                    <h5 class="fore-lowhi">25°/37°</h5>
+                </div>
+                <div class="col-sm-3 forecast forecastall">
+                    <h2 class="fore-temp">TUE</h2>
+                    <h5 class="fore-lowhi">25°/37°</h5>
+                </div>
+                <div class="col-sm-3 forecast forecastall">
+                    <h2 class="fore-temp">WED</h2>
+                    <h5 class="fore-lowhi">25°/37°</h5>
+                </div>
+                <div class="col-sm-3 forecastall ">
+                    <h2 class="fore-temp">THUR</h2>
+                    <h5 class="fore-lowhi">25°/37°</h5>
+                </div>
+            </div>
+            <!-- <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's
+                content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a> -->
+        </div>
+    </div>
+</body>
+
+</html>
