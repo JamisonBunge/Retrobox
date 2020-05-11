@@ -122,9 +122,41 @@ class Weather extends RESTDataSource {
         let date = this.formatDate()
         let location = today.place
         let background = "rgb(159, 168, 218)"
-        let icon = "assets/icons/iconmonstr-weather-14.svg"
+        let icon = this.getIconPath(today.main)
 
         return { forecast, today_high_low, today_temp, response, main, date, location, background, icon }
+
+    }
+
+    getIconPath(main) {
+        main = main.toLowerCase()
+        let path = ""
+        switch (main) {
+            case "thunderstorm":
+                path = "assets/icons/iconmonstr-weather-79.svg"
+                break;
+            case "clear":
+                path = "assets/icons/iconmonstr-weather-2.svg"
+                break;
+            case "rain":
+                path = "assets/icons/iconmonstr-weather-14.svg"
+                break;
+            case "snow":
+                path = "assets/icons/iconmonstr-weather-50.svg"
+                break;
+            case "drizzle":
+                path = "assets/icons/iconmonstr-weather-14.svg"
+                break;
+            case "clouds":
+                path = "assets/icons/iconmonstr-weather-12.svg"
+                break;
+            default:
+                path = "assets/icons/iconmonstr-weather-11.svg"
+                break;
+
+        }
+        console.log(path)
+        return path
 
     }
 

@@ -20,10 +20,10 @@ function weatherNowCard(response, keyword) {
     <div class="card move" >
         <div class="card-body">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4 temp">
                     <img class="wicon" src="${response.icon}" />
 
-                    <h5>${response.main}</h5>
+                    <h5 class="header">${response.main}</h5>
                 </div>
 
                 <div class="col-sm-4">
