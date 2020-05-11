@@ -1,0 +1,37 @@
+#volume-container {
+    position: absolute;
+    top: 35%;
+    left: 90%;
+    transform: translate(-50%, -40%);
+    background-color: #888;
+    width: 8%;
+    height: 70%;
+    z-index: 10;
+    opacity: 0;
+    border: 1px solid black;
+}
+
+#volume-bar {
+    height: 82%;
+    padding: 3px;
+    margin: 10px;
+    background-color: #555;
+}
+
+.vol-step {
+    height: 9%;
+    /* padding: 2px; */
+    margin: 2px;
+    background-color: green;
+}
+
+#volume-text {
+    height: 10%;
+    bottom: 0;
+    /* float: bottom; */
+    font-family: digital;
+    font-weight: bold;
+    font-size: 19px;
+    /* text-shadow: 0px 0px 3px #666; */
+    text-align: center;
+}
