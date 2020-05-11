@@ -1,4 +1,4 @@
-const volstep = 1 / 5;
+const volstep = 1 / 10;
 var volumeTimer = null;
 
 document.getElementById("volume-up").addEventListener('click', function () {
@@ -7,6 +7,9 @@ document.getElementById("volume-up").addEventListener('click', function () {
 
     if (actualAudio.volume < 1.0) {
         actualAudio.volume = Number((actualAudio.volume + volstep).toFixed(2));
+        console.log("vol-" + (actualAudio.volume*10))
+        document.getElementById("vol-" + ((actualAudio.volume*10))).classList.remove('vol-off');
+        document.getElementById("vol-" + ((actualAudio.volume*10))).classList.add('vol-on');
     }
 
     if (dummyAudio.volume < 1.0) {
@@ -25,6 +28,9 @@ document.getElementById("volume-down").addEventListener('click', function () {
 
     if (actualAudio.volume > 0) {
         actualAudio.volume = Number((actualAudio.volume - volstep).toFixed(2));
+        console.log("vol-" + (actualAudio.volume*10))
+        document.getElementById("vol-" + ((actualAudio.volume*10)+1)).classList.remove('vol-on');
+        document.getElementById("vol-" + ((actualAudio.volume*10)+1)).classList.add('vol-off');
     }
 
     if (dummyAudio.volume > 0) {
@@ -41,7 +47,8 @@ volume_bar = document.getElementById('volume-bar')
 for (let i = 0; i < 10; i++) {
     let vol_step = document.createElement('div');
     vol_step.classList.add('vol-step');
-    vol_step.id = "vol-" + (10 - i);
+    vol_step.innerHTML = '<div id="vol-' + (10 - i) + '" class="vol-on">';
+    // vol_step.id = "vol-" + (10 - i);
     volume_bar.appendChild(vol_step);
 }
 

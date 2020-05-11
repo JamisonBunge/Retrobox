@@ -3,26 +3,54 @@
     top: 35%;
     left: 90%;
     transform: translate(-50%, -40%);
-    background-color: #888;
+    background-color: #555;
     width: 8%;
     height: 70%;
     z-index: 10;
     opacity: 0;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 #volume-bar {
-    height: 82%;
+    position: relative;
+    height: 80%;
     padding: 3px;
     margin: 10px;
-    background-color: #555;
+    /* background-color: #555; */
 }
 
 .vol-step {
-    height: 9%;
+    /* float: top; */
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 8%;
+    width: 80%;
     /* padding: 2px; */
-    margin: 2px;
-    background-color: green;
+    /* padding: 10px; */
+}
+
+.vol-on {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+    width: 100%;
+    /* padding: 2px; */
+    margin: 5px 0 5px 0;
+    background-color: white; 
+}
+
+.vol-off {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 30%;
+    width: 30%;
+    margin: 5px 0 5px 0;
+    background-color: white; 
 }
 
 #volume-text {
@@ -31,7 +59,8 @@
     /* float: bottom; */
     font-family: digital;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
     /* text-shadow: 0px 0px 3px #666; */
     text-align: center;
+    color: white;
 }
