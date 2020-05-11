@@ -1,3 +1,5 @@
+![RETROBOX](frontend/assets/images/Retrobox.png)
+
 # Overview
 
 Retrobox is a privacy focused smart speaker. Devices like Amazon’s Alexa give you the convenience of voice commands but with a steep trade off in privacy. Retrobox gives you the voice commands you’ll actually use while cutting out the companies that want to collect your data. We decided to model the physical device after a boombox, to give a more “old school” feeling of a boombox that would serve the purpose of a speaker but did not have the same tradeoffs as modern day alternatives.
