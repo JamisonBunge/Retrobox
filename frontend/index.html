@@ -329,31 +329,37 @@
 
                     <div class="col-sm-1 sliderholder nopadding">
                         <div class="slider-display-wrapper">
-                            <div class="slider-display"></div>
+                            <div class="slider-display">
+                                <div id="low-display" >7</div>
+                            </div>
                         </div>
 
                         <div class="slider-wrapper low">
-                            <input id="low" type="range" class="retro-slider" />
+                            <input id="low" type="range" min="1" max="7" step="1"  value="1" class="retro-slider" />
                         </div>
                     </div>
 
                     <div class="col-sm-1 sliderholder nopadding">
                         <div class="slider-display-wrapper">
-                            <div class="slider-display"></div>
+                            <div class="slider-display">
+                                <div id="mid-display" >7</div>
+                            </div>
                         </div>
 
                         <div class="slider-wrapper mid">
-                            <input id="mid" type="range" class="retro-slider" />
+                            <input id="mid" type="range" min="1" max="7" step="1"  value="1" class="retro-slider" />
                         </div>
                     </div>
 
                     <div class="col-sm-1 sliderholder nopadding">
                         <div class="slider-display-wrapper">
-                            <div class="slider-display"></div>
+                            <div class="slider-display">
+                                <div id="high-display" >7</div>
+                            </div>
                         </div>
 
                         <div class="slider-wrapper high">
-                            <input id="high" type="range" class="retro-slider" />
+                            <input id="high" type="range" min="1" max="7" step="1"  value="1" class="retro-slider" />
                         </div>
                     </div>
 
@@ -448,16 +454,16 @@
                     <button id="play-button" class="retro-button" type="button" name="button">
                         <img src="assets/icons/start.svg" />
                     </button>
-                    <button class="retro-button flip" type="button" name="button">
+                    <button class="retro-button flip" type="button" name="button" onClick="changeSong()">
                         <img src="assets/icons/iconmonstr-back.svg" class="flip" />
                     </button>
-                    <button class="retro-button" type="button" name="button">
+                    <button class="retro-button" type="button" name="button" onClick="changeSong()">
                         <img src="assets/icons/iconmonstr-arrow-31.svg" />
                     </button>
-                    <button class="retro-button" type="button" name="button">
+                    <button id="volume-down" class="retro-button" type="button" name="button">
                         <img src="assets/icons/iconmonstr-audio-15.svg" />
                     </button>
-                    <button class="retro-button" type="button" name="button">
+                    <button id="volume-up" class="retro-button" type="button" name="button">
                         <img src="assets/icons/iconmonstr-audio-13.svg" />
                     </button>
                 </div>
@@ -476,9 +482,12 @@
         </div>
     </div>
 
-    <audio id="dummy-player" src="assets/music/sound_input.wav"></audio>
-    <audio id="actual-player" src="assets/music/sound_input.wav"></audio>
+
+    <audio id="dummy-player" src="assets/music/take-on-me-clip.wav"></audio>
+    <audio id="actual-player" src="assets/music/take-on-me-clip.wav"></audio>
+
 </body>
+
 <script src="assets/js/rb.js"></script>
 <script src="assets/js/outputcards.js"></script>
 <script src="assets/js/voicekit.js"></script>
@@ -487,6 +496,10 @@
 <script src="assets/js/voice-viz.js"></script>
 <script src="assets/js/newviz.js"></script>
 <script src="assets/js/sound-viz.js"></script>
-
+<script src="assets/js/volume.js"></script>
+<script src="assets/js/sliders.js"></script>
+<script src="assets/js/button-sound.js"></script>
+<script src="assets/js/change-song.js"></script>
+<script src="assets/js/voice-response.js"></script>
 
 </html>

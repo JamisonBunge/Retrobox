@@ -7,6 +7,7 @@ class CircleVizCluster {
             this.circles.push(new CircleViz(container))
         }
         this.stopped = true;
+        this.noVolume = true;
         this.count = 0;
         this.color = [255,0,255];
 
@@ -39,8 +40,10 @@ class CircleVizCluster {
     }
 
     doDraw() {
-        this.changeColor()
-        if (!this.stopped) {
+        this.noVolume = (this.myAudio.volume == 0)
+
+        if (!this.stopped && !this.noVolume) {
+            this.changeColor();
             let newScale = this.getCircleScale();
             newScale *= (1 + (Math.sin(2 * Math.PI * this.count / 60) + 1) / 15);
 
@@ -48,11 +51,11 @@ class CircleVizCluster {
             offset *= newScale / 4;
 
             for (let circle of this.circles) {
-                circle.doDraw(newScale, this.color, offset);
+                circle.doDraw(newScale, this.color, offset, this.noVolume);
             }
         } else {
             for (let circle of this.circles) {
-                circle.doDraw(0, this.color, 0);
+                circle.doDraw(0, this.color, 0, this.noVolume);
             }
         }
         this.animation = requestAnimationFrame(this.doDraw.bind(this));
@@ -115,8 +118,8 @@ class CircleViz {
         this.image = this.containerEl.querySelector('img')
     }
 
-    doDraw(newScale, color, offset) {
-        if (!this.stopped) {
+    doDraw(newScale, color, offset, noVolume) {
+        if (!this.stopped && !noVolume) {
             this.circle.style.transform = 'scale(' + newScale*1.1 + ')';
             this.image.style.transform = 'scale(' + (1 + newScale/8) + ')';
             this.image.style.left = offset + "px";
@@ -171,7 +174,7 @@ function initialDrawing() {
             container.style.width = container.offsetHeight + "px";
             container.style.height = container.offsetHeight + "px";
         }
-        console.log( container.style.width + ',' + container.style.height )
+        // console.log( container.style.width + ',' + container.style.height )
     }
 
     for (let container of document.getElementsByClassName("sound-viz-big") ) {
@@ -182,7 +185,7 @@ function initialDrawing() {
             container.style.width = container.offsetHeight + "px";
             container.style.height = container.offsetHeight + "px";
         }
-        console.log( container.style.width + ',' + container.style.height )
+        // console.log( container.style.width + ',' + container.style.height )
         
     }
 }
