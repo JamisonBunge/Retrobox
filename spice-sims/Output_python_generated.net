@@ -1,0 +1,90 @@
+* C:\users\delarosa\Desktop\senior-design\spice-sims\Output_python_generated.asc
+V1 Vi 0 wavefile="sound_input.wav"chan=0 AC 1
+V2 VDD 0 9
+V3 VSS 0 -9
+V4 BD 0 -8
+XX4 C1 VDD VSS 0 N003 BD BD rb011
+R3 N003 N002 10k
+R6 C1 N003 {R1}
+XX1 C2 VDD VSS 0 N008 BD BD rb011
+R2 C2 N008 {R3}
+XX3 C3 VDD VSS 0 N012 BD BD rb011
+C2 N011 N010 2n
+R5 C3 N012 {R5}
+L1 N001 Vi 1.5
+R1 N008 N007 10k
+R4 N012 N011 10k
+XX2 N004 VDD VSS C1 N004 BD BD rb011
+XX5 N009 VDD VSS C2 N009 BD BD rb011
+R7 N005 N004 100k
+R8 N005 N009 100k
+XX6 Vo VDD VSS 0 N005 BD BD rb011
+R9 Vo N005 {R7}
+XX7 N013 VDD VSS C3 N013 BD BD rb011
+R10 N005 N013 100k
+R14 N003 0 {R2}
+R15 N008 0 {R4}
+R16 N012 0 {R6}
+L8 N006 Vi .2652
+L10 N010 Vi .07958
+C7 N007 N006 15.915n
+C1 N002 N001 795.77n
+R11 Vo Vo2 90k
+R12 Vo2 0 10k
+
+* block symbol definitions
+.subckt rb011 OUT VDD VSS + - BD BS
+M1 N001 - N004 N004 RB01n
+M2 N002 + N004 N004 RB01n
+M3 VDD N001 N002 VDD RB01p
+M4 VDD N001 N001 VDD RB01p
+R2 OUT N003 100k
+C1 N003 N002 1f
+M6 VDD N002 OUT VDD RB01p2
+M5 N004 BD Vss Vss RB01n
+M7 OUT BS Vss Vss RB01n2
+.model RB01n2 NMOS(L=3u W=13.158u Gamma=0.2 Lambda=0.0132 Vto=0.3
++ Uo=500 Tox=18.2n Level=1)
+.model RB01p2 PMOS(L=3u W=48u Gamma=0.2 Lambda=0.0132 Vto=-0.3
++ Uo=250 Tox=18.2n Level=1)
+.model RB01n NMOS(L=3u W=24u Gamma=0.2 Lambda=0.0132 Vto=0.3
++ Uo=500 Tox=18.2n Level=1)
+.model RB01p PMOS(L=3u W=48u Gamma=0.2 Lambda=0.0132 Vto=-0.3
++ Uo=250 Tox=18.2n Level=1)
+.ends rb011
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\delarosa\Documents\LTspiceXVII\lib\cmp\standard.mos
+* .four 1k 20 v(vo)
+.op
+;ac dec 100000 2 200000
+.tran 10
+.wave "sound_output.wav" 16 44100 Vo2
+* .step param vbd -6.9 -6.85 -.01
+* .param in=0
+* .step param Val 1 80 1
+.param R7=100k
+* .four 1k 20 v(C1)
+* .four 1k 20 v(C2)
+* .four 1k 20 v(C3)
+.param R1=80k
+.param R2=10k
+.param R3=10k
+.param R4=10k
+.param R5=10k
+.param R6=10k
+* The custom power supply cannot be hooked up\nthis is due to the simulation entering thread errors
+* Simulation Commands
+* User Inputs
+* Comments
+* Voltage Supplies
+* Freq. Channels
+* Unity buffer and Summing Circuit
+* Power Amplifier
+* ideal L= .07958 H C= 2nF
+* ideal L= .2652 H C=15.915 nF
+* ideal C= 795.77 nF
+* Created by Jakub Ostrowski, May 5, 2020
+.backanno
+.end

@@ -1,0 +1,3 @@
+set R1 80k
+set R3 10k
+run R5 10k
