@@ -24,11 +24,11 @@
     <link href="assets/styles/voice-viz.css" rel="stylesheet">
     <link href="assets/styles/weather.css" rel="stylesheet">
     <link href="assets/styles/boombox.css" rel="stylesheet">
+    <link href="assets/styles/sound-viz.css" rel="stylesheet">
+    <link href="assets/styles/volume.css" rel="stylesheet">
 
     <title>RetroBox</title>
 
-    <link href="assets/styles/sound-viz.css" rel="stylesheet">
-    <link href="assets/styles/volume.css" rel="stylesheet">
 
 </head>
 
@@ -42,7 +42,7 @@
                         <img class="speaker-inner" src="assets/images/inner speaker small.png" />
                         <div class="sound-button-circle"></div>
                     </div>
-                    <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
+
                 </div>
             </div>
             <div id="top-middle-area" class="col-sm-8 top">
@@ -84,14 +84,10 @@
                                 <div id="high-display">7</div>
                             </div>
                         </div>
-
                         <div class="slider-wrapper high">
                             <input id="high" type="range" min="1" max="7" step="1" value="1" class="retro-slider" />
                         </div>
                     </div>
-
-
-
                 </div>
 
 
@@ -104,7 +100,7 @@
                         <img class="speaker-inner" src="assets/images/inner speaker small.png" />
                         <div class="sound-button-circle"></div>
                     </div>
-                    <!-- <img class="small-speaker-inner" src="assets/inner speaker small.png" /> -->
+
                 </div>
             </div>
         </div>
@@ -116,15 +112,15 @@
                         <img class="speaker-inner" src="assets/images/inner speaker big.png" />
                         <div class="sound-button-circle"></div>
                     </div>
-                    <!-- <img class="big-speaker-inner" src="assets/inner speaker big.png" /> -->
+
                 </div>
             </div>
             <div id="bot-middle-area" class="col-sm-6 bottom">
-                <!-- <p class="temp">test</p> -->
+
                 <div class="cassette-holder">
-                    <!-- <iframe src="/old_root/old_index.html" class="myscreen screen">.</iframe> -->
+
                     <div class="myscreen screen">
-                        <!-- <h1 class="text-center mytitle">Smart Speaker Demo</h1> -->
+
 
                         <div class="iframe-container">
                             <div class="clock-container">
@@ -135,19 +131,11 @@
 
                         <div id="popup" class="wrap">
                             <div class='content dialogparent'>
-                                <!-- -
-                THIS IS WHERE THE DIALOG_UI STARTS
-                temp css grid to put the temp button on the same line
-                -->
+                                <!-- - THIS IS WHERE THE DIALOG_UI STARTS -->
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <h1 id="welcomeprompt">How can I help?</h1>
                                     </div>
-                                    <!-- <div class="col-sm-4">
-                                        <button onClick="getCommand(`weatherNow`)" id="weathernow" type="button"
-                                            class="btn btn-dark ">Weather
-                                            Now</button>
-                                    </div> -->
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -156,13 +144,7 @@
                                 </div>
 
                                 <div id=output></div>
-
-                                <div id="tempoutput">
-
-                                </div>
-                                <!-- <button id="voice" onClick="closeDialogUI()" type="button"
-                                    class="btn btn-dark voicebutton exitbutton">Exit</button> -->
-                                <!-- this button should always be on the screen -->
+                                <div id="tempoutput"></div>
                             </div>
                         </div>
 
