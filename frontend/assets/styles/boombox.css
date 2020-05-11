@@ -1,0 +1,274 @@
+
+body {
+
+    background: grey;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: "BarcadeNoBarBold, Barcade No Bar Bold";
+    font-weight: bold;
+    src: url('./fonts/barcadnobarbold.ttf');
+}
+
+.top {
+    background: red;
+    height: 25vh;
+}
+
+.bottom {
+    height: 75vh;
+    border-top: 4px solid black;
+}
+
+#top-middle-area {
+    background: #A0FFCE;
+}
+
+
+
+#bot-middle-area {
+    background: #546AFC;
+}
+
+
+
+.myscreen {
+    height: 100%;
+    width: 100%;
+    background: #f3f3f3;
+    border: 4px solid black;
+}
+
+#top-left-area {
+    border-right: 4px solid black;
+    padding: 0;
+
+    background: #546AFC;
+
+
+}
+
+#top-right-area {
+    border-left: 4px solid black;
+    background: #546AFC;
+
+
+}
+
+#bot-left-area {
+    border-right: 4px solid black;
+    background: #A0FFCE;
+
+}
+
+#bot-right-area {
+    border-left: 4px solid black;
+    background: #A0FFCE;
+}
+
+.mycont {
+    background: green;
+    margin: auto;
+}
+
+.speaker {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.speaker .small-speaker-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+}
+
+.speaker .big-speaker-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    width: 100%;
+}
+
+.cassette-buttons {
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 5px;
+    height: 15%;
+    margin-bottom: 10px;
+
+}
+
+
+.cassette-holder {
+    background: #3f3f3f;
+    margin-top: 10px;
+    height: 80%;
+
+
+    /* z-index: 10; */
+    /* brings iframe to the front */
+}
+
+.retro-button {
+    /* font-size: 23px; */
+    font-weight: 600;
+    background-color: #FC6CA3;
+    width: 10%;
+    height: 70px;
+    max-height: 70%;
+    margin: 0 2px;
+    color: #fff;
+
+    position: relative;
+    border: 2px solid black;
+    padding: 10px 30px;
+    /* font-family: Courier; */
+    box-shadow: -2px 3px 0px 0px black;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    border-radius: 5px;
+}
+
+.retro-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0px 0px 0px 0px #FC6CA3;
+}
+
+.retro-button img {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 0;
+    margin: 0;
+    height: 50%;
+    width: 50%;
+
+}
+
+
+.retro-button:active {
+    outline: none;
+    color: #FC6CA3;
+    background-color: #A0FFCE;
+
+}
+
+.retro-button:focus {
+    outline: none;
+}
+
+.logo-wrapper {
+    width: 100%;
+    /* background: green; */
+}
+
+.logo-wrapper img {
+    height: 100%;
+}
+
+
+.spaceholder {
+    /* background: red; */
+}
+
+.full {
+    padding: 0px;
+    height: 100%;
+}
+
+.temp {
+    font-family: "BarcadeNoBarBold, Barcade No Bar Bold";
+}
+
+
+.mybutton {
+    margin: 10px auto;
+    width: 100%;
+}
+
+.centerdiv {
+    text-align: center;
+}
+
+.voicebutton {
+    /* width: 100%;
+    margin-bottom: 20px; */
+}
+
+.mycard {
+    width: 100%;
+}
+
+.mytitle {
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.showcard {
+    display: contents;
+}
+
+.clock-container {
+    width: 100%;
+    height: 100%;
+    background: rgb(201, 201, 201);
+}
+
+#clock-iframe {
+    border: 0;
+    margin-top: 10%;
+    height: 100%;
+    width: 100%;
+    /* background: red; */
+    /* top: 50%;
+    transform: translate(0%, 25%); */
+}
+
+.exitbutton {
+    position: absolute;
+    bottom: 0px;
+}
+
+.dialogparent {
+    position: relative;
+    ;
+    height: 100%;
+}
+
+#tempoutput {
+    background: green;
+
+}
+
+.iframe-container {
+    /* position: absolute; */
+    height: 100%;
+    width: 100%;
+    /*
+    background: yellow; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%); */
+}
+
+.start-button-container {
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 0 40px 0px 40px;
+}
