@@ -55,6 +55,6 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 
 ### Python scripts
 - [Mozilla Deepspeech](https://github.com/mozilla/DeepSpeech)
-- **ASK JAKUB FOR LTSPICE SOURCE**
+- [LTSpice-CLI](https://github.com/joskvi/LTspice-cli)
 
 # Hardware Side
