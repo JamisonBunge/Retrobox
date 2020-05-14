@@ -58,7 +58,7 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 - [LTSpice-CLI](https://github.com/joskvi/LTspice-cli)
 
 # Hardware Side
-- Input Bandpass Filter to filter out voice
+- Input Bandpass Filter to filter frequencies other than speech frequencies
 - Custom made Opamp
 - Equalizer
 - Power amplifier
