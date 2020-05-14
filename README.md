@@ -70,9 +70,9 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
   - Low-range: 20 Hz - 1 kHz
   - Mid-range: 1 kHz - 6.5 kHz
   - High-range: 6.5 kHz - 20 kHz
-  -Minimum voltage gain: 0 dB
-  -Maximum voltage gain: 17 dB
+  - Minimum voltage gain: 0 dB
+  - Maximum voltage gain: 17 dB
 - Power amplifier
-  -Maximum power gain: 8.5 dB
+  - Maximum power gain: 8.5 dB
 - Speaker impedance model
 - .wav file compatibility simulation
