@@ -41,7 +41,7 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 
 ### What we didn’t get to / upcoming features
 
-- LTSpice simulations currently cannot be run in real time on the server, because of a memory leak caused by an LTSpice file
+- LTSpice simulations currently cannot be run in real time on the server, because of a thread error caused by an LTSpice file
 - As a consequence of the above, sliders for the equalizers are not functional as the audio cannot be sent through the SPICE simulation
 - Linux server for deep speech recognition not tied in, to simplify the demo
 
