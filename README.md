@@ -59,7 +59,7 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 
 # Hardware Side
 - AC/DC power conversion
-  -120 VAC to +/- 9 VDC
+  - 120 VAC to +/- 9 VDC
 - Input Bandpass Filter to filter frequencies other than speech frequencies
   - Bandwidth: 60 Hz to 400 Hz
 - Custom made CMOS Opamp
