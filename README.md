@@ -58,3 +58,10 @@ During the 2020 pandemic, building a physical device was no longer possible. Ins
 - [LTSpice-CLI](https://github.com/joskvi/LTspice-cli)
 
 # Hardware Side
+- Input Bandpass Filter to filter out voice
+- Custom made Opamp
+- Equalizer
+- Power amplifier
+- Speaker electrical model
+- AC/DC power conversion
+- .wav file compatibility
